@@ -2,7 +2,7 @@ Summary:	A collection of different plugins for Geany
 Summary(pl.UTF-8):	Zbiór różnych wtyczek dla Geany
 Name:		geany-plugins
 Version:	1.36
-Release:	2
+Release:	1
 License:	GPL v2+
 Group:		Libraries
 Source0:	https://plugins.geany.org/geany-plugins/%{name}-%{version}.tar.gz
@@ -14,6 +14,7 @@ BuildRequires:	docutils
 BuildRequires:	enchant2-devel
 BuildRequires:	geany-devel >= 1.36
 BuildRequires:	gpgme-devel
+BuildRequires:	gtk+2-devel
 BuildRequires:	gtkspell-devel
 BuildRequires:	libgit2-devel
 BuildRequires:	libmarkdown-devel
@@ -32,20 +33,6 @@ lightweight IDE.
 Geany-Plugins to zbiór różnych wtyczek dla Geany, lekiego IDE
 używającego GTK+2.
 
-
-%package devel
-Summary:	Header files for geany-plugins
-Summary(pl.UTF-8):	Pliki nagłówkowee dla geany-plugins
-Group:		Development/Libraries
-Requires:	%{name} = %{version}-%{release}
-
-%description devel
-Header files for geany-plugins.
-
-%description devel -l pl.UTF-8
-Pliki nagłówkowe dla gean-plugins..
-
-
 %package addons
 Summary:	Various small plugins for Geany
 Summary(pl.UTF-8):	Różne drobne dodatki dla Geany
@@ -61,7 +48,6 @@ Ten plugin dodaje ró ż ne ma~B e dodatki do Geany, któ re nie zas~B
 uguj~E aby mie~G w~B asne pluginy ale wci~E ż s~E uż yteczne dla
 ludzi.
 
-
 %package autoclose
 Summary:	autoclose plugin for Geany
 Summary(pl.UTF-8):	wtyczka automatycznego zamykania nawiasów dla Geany
@@ -73,7 +59,6 @@ This plugin enables auto-closing features.
 
 %description autoclose -l pl.UTF-8
 Ta wtyczka automatycznie zamyka nawiasy w trakcie pisania kodu.
-
 
 %package automark
 Summary:	automark plugin for Geany
@@ -89,7 +74,6 @@ word under cursor.
 Ta wtyczka podświetla wszystkie słowa pasujące do aktualnie
 znajdującego się pod kursorem.
 
-
 %package codenav
 Summary:	codenav plugin for Geany
 Summary(pl.UTF-8):	: Wtyczka codenav dla Geany
@@ -101,7 +85,6 @@ This plugin adds some facilities for navigating in code files.
 
 %description codenav -l pl.UTF-8
 Wtyczka ułatwiająca nawigowanie po kodzie.
-
 
 %package commander
 Summary:	commander plugin for Geany
@@ -116,7 +99,6 @@ rapid access to any action.
 %description commander -l pl.UTF-8
 Commander to wtyczka do Geany, która zapewnia panel poleceń
 umożliwiający szybki dostęp do dowolnej akcji.
-
 
 %package debugger
 Summary:	debugger plugin for Geany
@@ -134,7 +116,6 @@ Wtyczka umożliwia debugowanie w Geany. Obecnie obsługuje tylko GDB,
 ale została opracowana z myślą o obsłudze wielu debuggerów, więc
 planowane jest także wsparcie innych backendów.
 
-
 %package defineformat
 Summary:	defineformat plugin for Geany
 Summary(pl.UTF-8):	: Wtyczka defineformat dla Geany
@@ -148,7 +129,6 @@ help you to write multiline defines with aligned backslash.
 %description defineformat -l pl.UTF-8
 Ta wtyczka pomoże Ci napisać definicje wielowierszowe z wyrównanym
 odwrotnym ukośnikiem.
-
 
 %package geanyctags
 Summary:	geanyctags plugin for Geany
@@ -166,7 +146,6 @@ installed in a system path
 GeanyCtags dodaje prostą obsługę generowania i sprawdzania plików
 ctags dla projektu Geany. Wtyczka wymaga zainstalowanego ctags.
 
-
 %package geanydoc
 Summary:	geanydoc plugin for Geany
 Summary(pl.UTF-8):	: Wtyczka geanydoc dla Geany
@@ -180,7 +159,6 @@ on the current word at the cursor position.
 %description geanydoc -l pl.UTF-8
 Geanydoc to wtyczka dla Geany IDE, która pozwala wykonywać określone
 polecenia dla aktualnie zaznaczonego słowa.
-
 
 %package geanyextrasel
 Summary:	geanyextrasel plugin for Geany
@@ -214,7 +192,6 @@ Wtyczka Extra Selection dodaje do Geany następujące funkcje:
   robią zaznaczenie prostokąta zamiast strumienia.
 - Wybór za pomocą kotwicy zamiast klawiszy Shift-move.
 
-
 %package geanyinsertnum
 Summary:	geanyinsertnum plugin for Geany
 Summary(pl.UTF-8):	: Wtyczka geanyinsertnum dla Geany
@@ -234,7 +211,6 @@ Określonych przez użytkownika. Ze względów praktycznych liczba linii
 jest ograniczona do 250000. Linie krótsze niż bieżący wybór są
 pomijane.
 
-
 %package geanylua
 Summary:	geanylua plugin for Geany
 Summary(pl.UTF-8):	: Wtyczka geanylua dla Geany
@@ -246,7 +222,6 @@ This is a plugin for the Geany IDE to provide Lua scripting.
 
 %description geanylua -l pl.UTF-8
 Ta wtyczka umożliwia używanie w Geany skryptów LUA.
-
 
 %package geanymacro
 Summary:	geanymacro plugin for Geany
@@ -261,7 +236,6 @@ Geanymacro is a plugin to provide user defined macros for Geany
 Geanymacro to wtyczka pozwalająca użytkownikowi definiować własne
 makra.
 
-
 %package geanyminiscript
 Summary:	geanyminiscript plugin for Geany
 Summary(pl.UTF-8):	: Wtyczka geanyminiscript dla Geany
@@ -273,7 +247,6 @@ A Geany Mini-Script filter plugin
 
 %description geanyminiscript -l pl.UTF-8
 Wtyczka filtra Geany Mini-Script
-
 
 %package geanynumberedbookmarks
 Summary:	geanynumberedbookmarks plugin for Geany
@@ -289,7 +262,6 @@ bookmarks (in addition to the usual bookkmarks)
 Geanynumberedbookmarks to wtyczka zapewniająca użytkownikom 10
 ponumerowanych zakładek (oprócz zwykłych zakładek)
 
-
 %package geanypg
 Summary:	geanypg plugin for Geany
 Summary(pl.UTF-8):	: Wtyczka geanypg dla Geany
@@ -304,7 +276,6 @@ and verify signatures with GnuPG.
 GeanyPG to wtyczka dla Geany, która pozwala użytkownikowi szyfrować,
 deszyfrować i weryfikować podpisy za pomocą GnuPG.
 
-
 %package geanyprj
 Summary:	geanyprj plugin for Geany
 Summary(pl.UTF-8):	: Wtyczka geanyprj dla Geany
@@ -316,7 +287,6 @@ Geanyprj is alternative project manager for Geany fast light IDE.
 
 %description geanyprj -l pl.UTF-8
 Geanyprj jest alternatywnym menedżerem projektów dla Geany IDE.
-
 
 %package geanypy
 Summary:	geanypy plugin for Geany
@@ -331,7 +301,6 @@ Geany C API for Python.
 %description geanypy -l pl.UTF-8
 Pisz wtyczki Geany w Pythonie! Geanypy zapewnia większość
 standardowych API C Geany dla Pythona.
-
 
 %package geanyvc
 Summary:	geanyvc plugin for Geany
@@ -351,7 +320,6 @@ dostępu do różnych systemów kontroli wersji w Geany IDE.
 Zaimplementowano tylko niewielki podzbiór funkcji, ale, hej, nie
 potrzebujesz niczego poza różnicami, logowaniem, statusem,
 przywracaniem i zatwierdzaniem przez większość czasu.
-
 
 %package geniuspaste
 Summary:	geniuspaste plugin for Geany
@@ -385,7 +353,6 @@ tych usług pastebin, ale można dodać więcej:
   go z włączonym podświetlaniem składni. Może także wyświetlać wklejony
   kod otwierając nową kartę przeglądarki.
 
-
 %package git-changebar
 Summary:	git-changebar plugin for Geany
 Summary(pl.UTF-8):	: Wtyczka git-changebar dla Geany
@@ -399,7 +366,6 @@ allows to navigate through the hunks and undo them.
 %description git-changebar -l pl.UTF-8
 Ta wtyczka podkreśla niezatwierdzone zmiany w plikach śledzonych za
 pomocą Git, pozwala nawigować między zmienionymi blokami i cofać je.
-
 
 %package keyrecord
 Summary:	keyrecord plugin for Geany
@@ -415,7 +381,6 @@ replay it several times.
 Ta wtyczka pozwala nagrywać sekwencję naciśnięć klawiszy i odtwarzać
 ją kilka razy.
 
-
 %package latex
 Summary:	latex plugin for Geany
 Summary(pl.UTF-8):	: Wtyczka latex dla Geany
@@ -427,7 +392,6 @@ LaTeX is a little plugin to improve support of LaTeX on Geany.
 
 %description latex -l pl.UTF-8
 LaTeX to prosta wtyczka rozszerzająca możliwości Geany w tym zakresie.
-
 
 %package lineoperations
 Summary:	lineoperations plugin for Geany
@@ -443,7 +407,6 @@ applied to an open file, or selection.
 Line Operations to zestaw prostych funkcji liniowych, które można
 zastosować do otwartego pliku lub zaznaczenia.
 
-
 %package lipsum
 Summary:	lipsum plugin for Geany
 Summary(pl.UTF-8):	: Wtyczka lipsum dla Geany
@@ -458,6 +421,21 @@ to insert placeholder text into your document.
 Lipsum to wtyczka dla Geany, która implementuje generator Lorem Ipsum
 do wstawiania tekstu zastępczego do dokumentu.
 
+%package multiterm
+Summary:	multiterm plugin for Geany
+Summary(pl.UTF-8):	: Wtyczka multiterm dla Geany
+Group:		Libraries
+Requires:	%{name} = %{version}-%{release}
+
+%description multiterm
+MultiTerm is similar to Geany's built-in VTE terminal except that it
+supports multiple terminals in tabs and supports different shells in
+each of the terminal tabs.
+
+%description multiterm -l pl.UTF-8
+MultiTerm jest podobne do wbudowanego w Geany terminala VTE, z tą
+różnicą, że wspiera wiele terminali w zakładkach i różnie powłoki w
+każdej zakłądce terminalowej.
 
 %package overview
 Summary:	overview plugin for Geany
@@ -477,7 +455,6 @@ edytora, który pozwala zobaczyć i nawigować po wielu plikach
 jednocześnie. Jest podobny do Minimapy w SublimeText lub podobnej
 funkcji w wielu innych edytorach.
 
-
 %package pairtaghighlighter
 Summary:	pairtaghighlighter plugin for Geany
 Summary(pl.UTF-8):	: Wtyczka pairtaghighlighter dla Geany
@@ -491,7 +468,6 @@ moving cursor inside a tag.
 %description pairtaghighlighter -l pl.UTF-8
 Znajduje i wyróżnia pasujący otwierający / zamykający znacznik HTML,
 klikając lub przesuwając kursor wewnątrz znacznika.
-
 
 %package pohelper
 Summary:	pohelper plugin for Geany
@@ -509,7 +485,6 @@ Translation Helper to wtyczka dla Geany, która poprawia obsługę plików
 tłumaczeń GetText, zapewniając różne funkcje specyficzne dla tego
 formatu i dla tłumaczy.
 
-
 %package pretty-printer
 Summary:	pretty-printer plugin for Geany
 Summary(pl.UTF-8):	: Wtyczka pretty-printer dla Geany
@@ -521,7 +496,6 @@ Formats an XML file and makes it human-readable.
 
 %description pretty-printer -l pl.UTF-8
 Formatuje XML i czyni go czytelnym dla ludzi.
-
 
 %package projectorganizer
 Summary:	projectorganizer plugin for Geany
@@ -536,7 +510,6 @@ displaying a tree of files belonging to the project in the sidebar.
 %description projectorganizer -l pl.UTF-8
 Project Organizer to rozszerzenie zarządzania projektami Geany,
 wyświetlające na pasku bocznym drzewo plików należących do projektu.
-
 
 %package scope
 Summary:	scope plugin for Geany
@@ -569,7 +542,6 @@ funkcjami:
   bezpośrednio z gdb.
 - Obsługa 7-bit/Locale/UTF-8
 
-
 %package sendmail
 Summary:	sendmail plugin for Geany
 Summary(pl.UTF-8):	: Wtyczka sendmail dla Geany
@@ -590,7 +562,6 @@ koperty większości narzędzi biurowych i wymaga klienta poczty
 obsługującego połączenia zdalne. Nie jest to bezpośrednie powiązanie z
 sendmailem, nawet jeśli mogłoby być wykorzystane.
 
-
 %package shiftcolumn
 Summary:	shiftcolumn plugin for Geany
 Summary(pl.UTF-8):	: Wtyczka shiftcolumn dla Geany
@@ -604,7 +575,6 @@ right direction skipping one character at a time.
 %description shiftcolumn -l pl.UTF-8
 Ta wtyczka umożliwia przenoszenie bloków tekstu poziomo w lewo lub w
 prawo, pomijając jeden znak na raz.
-
 
 %package spellcheck
 Summary:	spellcheck plugin for Geany
@@ -637,7 +607,6 @@ Myspell, Hunspell, ...). Okno dialogowe konfiguracji wtyczki zawiera
 listę wszystkich dostępnych języków / słowników, których można użyć do
 sprawdzania pisowni.
 
-
 %package tableconvert
 Summary:	tableconvert plugin for Geany
 Summary(pl.UTF-8):	: Wtyczka tableconvert dla Geany
@@ -651,7 +620,6 @@ separated selection into a table.
 %description tableconvert -l pl.UTF-8
 Tableconvert to wtyczka, która pomaga w konwertowaniu selekcji
 rozdzielonej tabulatorami na tabelę.
-
 
 %package treebrowser
 Summary:	treebrowser plugin for Geany
@@ -684,7 +652,6 @@ there is a more recent version of Geany available.
 %description updatechecker -l pl.UTF-8
 UpdateChecker to wtyczka dla Geany, która może sprawdzić, czy dostępna
 jest nowsza wersja Geany.
-
 
 %package vimode
 Summary:	vimode plugin for Geany
@@ -748,116 +715,128 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
+%{__rm} -r $RPM_BUILD_ROOT%{_docdir}/%{name}
+%{__rm} $RPM_BUILD_ROOT%{_libdir}/{,geany/,%{name}/geanylua/}*.la
+
 # fix locales
-rm -r $RPM_BUILD_ROOT%{_localedir}/el
+%{__rm} -r $RPM_BUILD_ROOT%{_localedir}/el
 
 %find_lang %{name}
-rm $RPM_BUILD_ROOT%{_docdir}/%{name}/{AUTHORS,COPYING,ChangeLog,NEWS,README}
-rm $RPM_BUILD_ROOT%{_docdir}/%{name}/*/{AUTHORS,COPYING,ChangeLog,NEWS,README}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
-%doc  NEWS README
+%doc NEWS README
 %{_libdir}/*.so*
-%dir %{_docdir}/%{name}
 %dir %{_datadir}/%{name}
 
 %files addons
 %defattr(644,root,root,755)
+%doc addons/{AUTHORS,ChangeLog,NEWS,README}
 %{_libdir}/geany/addons.so
 
 %files autoclose
 %defattr(644,root,root,755)
+%doc autoclose/{AUTHORS,ChangeLog,NEWS,README}
 %{_libdir}/geany/autoclose.so
 
 %files automark
 %defattr(644,root,root,755)
+%doc automark/{AUTHORS,ChangeLog,NEWS,README}
 %{_libdir}/geany/automark.so
 
 %files codenav
 %defattr(644,root,root,755)
+%doc codenav/{AUTHORS,ChangeLog,NEWS,README}
 %{_libdir}/geany/codenav.so
 
 %files commander
 %defattr(644,root,root,755)
+%doc commander/{AUTHORS,ChangeLog,NEWS,README}
 %{_libdir}/geany/commander.so
 
 %files debugger
 %defattr(644,root,root,755)
+%doc commander/{AUTHORS,ChangeLog,NEWS,README}
 %{_libdir}/geany/debugger.so
 %dir %{_datadir}/%{name}/debugger
 %{_datadir}/%{name}/debugger/*
 
 %files defineformat
 %defattr(644,root,root,755)
+%doc defineformat/{AUTHORS,ChangeLog,NEWS,README}
 %{_libdir}/geany/defineformat.so
-
-%files devel
-%defattr(644,root,root,755)
-%{_libdir}/*.la*
-%{_libdir}/geany/*.la
-%{_libdir}/%{name}/geanylua/*.la
 
 %files geanyctags
 %defattr(644,root,root,755)
+%doc geanyctags/{AUTHORS,ChangeLog,NEWS,README}
 %{_libdir}/geany/geanyctags.so
 
 %files geanydoc
 %defattr(644,root,root,755)
+%doc geanydoc/{AUTHORS,ChangeLog,NEWS,README}
 %{_libdir}/geany/geanydoc.so
 
 %files geanyextrasel
 %defattr(644,root,root,755)
+%doc geanyextrasel/{AUTHORS,ChangeLog,NEWS,README}
 %{_libdir}/geany/geanyextrasel.so
 
 %files geanyinsertnum
 %defattr(644,root,root,755)
+%doc geanyinsertnum/{AUTHORS,ChangeLog,NEWS,README}
 %{_libdir}/geany/geanyinsertnum.so
 
 %files geanylua
 %defattr(644,root,root,755)
+%doc geanylua/{AUTHORS,ChangeLog,NEWS,README} geanylua/docs/*.html
 %{_libdir}/geany/geanylua.so
 %{_libdir}/%{name}/geanylua/*.so
 %dir %{_datadir}/%{name}/geanylua
 %{_datadir}/%{name}/geanylua/*
-%dir %{_docdir}/%{name}/geanylua
-%{_docdir}/%{name}/geanylua/*
 
 %files geanymacro
 %defattr(644,root,root,755)
+%doc geanymacro/{AUTHORS,ChangeLog,NEWS,README}
 %{_libdir}/geany/geanymacro.so
 
 %files geanyminiscript
 %defattr(644,root,root,755)
+%doc geanyminiscript/{AUTHORS,ChangeLog,NEWS,README}
 %{_libdir}/geany/geanyminiscript.so
 
 %files geanynumberedbookmarks
 %defattr(644,root,root,755)
+%doc geanynumberedbookmarks/{AUTHORS,ChangeLog,NEWS,README}
 %{_libdir}/geany/geanynumberedbookmarks.so
 
 %files geanypg
 %defattr(644,root,root,755)
+%doc geanypg/{AUTHORS,ChangeLog,NEWS,README}
 %{_libdir}/geany/geanypg.so
 
 %files geanyprj
 %defattr(644,root,root,755)
+%doc geanyprj/{AUTHORS,ChangeLog,NEWS,README}
 %{_libdir}/geany/geanyprj.so
 
 %files geanypy
 %defattr(644,root,root,755)
+%doc geanypy/{AUTHORS,ChangeLog,NEWS,README}
 %{_libdir}/geany/geanypy.so
 %{_libdir}/geany/*.py
 %{_libdir}/geany/geanypy/*
 
 %files geanyvc
 %defattr(644,root,root,755)
+%doc geanyvc/{AUTHORS,ChangeLog,NEWS,README}
 %{_libdir}/geany/geanyvc.so
 
 %files geniuspaste
 %defattr(644,root,root,755)
+%doc geniuspaste/{AUTHORS,ChangeLog,NEWS,README}
 %{_libdir}/geany/geniuspaste.so
 %dir %{_datadir}/%{name}/geniuspaste
 %dir %{_datadir}/%{name}/geniuspaste/pastebins
@@ -865,93 +844,113 @@ rm -rf $RPM_BUILD_ROOT
 
 %files git-changebar
 %defattr(644,root,root,755)
+%doc git-changebar/{AUTHORS,ChangeLog,NEWS,README}
 %{_libdir}/geany/git-changebar.so
 %dir %{_datadir}/%{name}/git-changebar
 %{_datadir}/%{name}/git-changebar/*
 
 %files keyrecord
 %defattr(644,root,root,755)
+%doc keyrecord/{AUTHORS,ChangeLog,NEWS,README}
 %{_libdir}/geany/keyrecord.so
 
 %files latex
 %defattr(644,root,root,755)
+%doc latex/{AUTHORS,ChangeLog,NEWS,README} latex/doc/latex.pdf
 %{_libdir}/geany/latex.so
-%dir %{_docdir}/%{name}/latex
-%{_docdir}/%{name}/latex/*
 
 %files lineoperations
 %defattr(644,root,root,755)
+%doc lineoperations/{AUTHORS,ChangeLog,NEWS,README}
 %{_libdir}/geany/lineoperations.so
 
 %files lipsum
 %defattr(644,root,root,755)
+%doc lipsum/{AUTHORS,ChangeLog,NEWS,README}
 %{_libdir}/geany/lipsum.so
+
+%files multiterm
+%defattr(644,root,root,755)
+%doc multiterm/{AUTHORS,ChangeLog,NEWS,README,TODO}
+%{_libdir}/geany/multiterm.so
 
 %files overview
 %defattr(644,root,root,755)
+%doc overview/{AUTHORS,ChangeLog,NEWS,README}
 %{_libdir}/geany/overview.so
 %dir %{_datadir}/%{name}/overview
 %{_datadir}/%{name}/overview/*
 
 %files pairtaghighlighter
 %defattr(644,root,root,755)
+%doc pairtaghighlighter/{AUTHORS,ChangeLog,NEWS,README}
 %{_libdir}/geany/pairtaghighlighter.so
 
 %files pohelper
 %defattr(644,root,root,755)
+%doc pohelper/{AUTHORS,ChangeLog,NEWS,README}
 %{_libdir}/geany/pohelper.so
 %dir %{_datadir}/%{name}/pohelper
 %{_datadir}/%{name}/pohelper/*
 
 %files pretty-printer
 %defattr(644,root,root,755)
+%doc pretty-printer/{AUTHORS,NEWS,README}
 %{_libdir}/geany/pretty-printer.so
 
 %files projectorganizer
 %defattr(644,root,root,755)
+%doc projectorganizer/{AUTHORS,ChangeLog,NEWS,README}
 %{_libdir}/geany/projectorganizer.so
 
 %files scope
 %defattr(644,root,root,755)
+%doc scope/{AUTHORS,ChangeLog,NEWS,README} scope/docs/*.html
 %{_libdir}/geany/scope.so
 %dir %{_datadir}/%{name}/scope
 %{_datadir}/%{name}/scope/*
-%dir %{_docdir}/%{name}/scope
-%{_docdir}/%{name}/scope/*
 
 %files sendmail
 %defattr(644,root,root,755)
+%doc sendmail/{AUTHORS,ChangeLog,NEWS,README}
 %{_libdir}/geany/sendmail.so
 
 %files shiftcolumn
 %defattr(644,root,root,755)
+%doc shiftcolumn/{AUTHORS,ChangeLog,NEWS,README}
 %{_libdir}/geany/shiftcolumn.so
 
 %files spellcheck
 %defattr(644,root,root,755)
+%doc spellcheck/{AUTHORS,ChangeLog,NEWS,README}
 %{_libdir}/geany/spellcheck.so
 
 %files tableconvert
 %defattr(644,root,root,755)
+%doc tableconvert/{AUTHORS,ChangeLog,NEWS,README}
 %{_libdir}/geany/tableconvert.so
 
 %files treebrowser
 %defattr(644,root,root,755)
+%doc treebrowser/{AUTHORS,ChangeLog,NEWS,README}
 %{_libdir}/geany/treebrowser.so
 
 %files updatechecker
 %defattr(644,root,root,755)
+%doc updatechecker/{AUTHORS,ChangeLog,NEWS,README}
 %{_libdir}/geany/updatechecker.so
 
 %files vimode
 %defattr(644,root,root,755)
+%doc vimode/{AUTHORS,ChangeLog,NEWS,README}
 %{_libdir}/geany/vimode.so
 
 %files workbench
 %defattr(644,root,root,755)
+%doc workbench/{AUTHORS,ChangeLog,NEWS,README}
 %{_libdir}/geany/workbench.so
 
 %files xmlsnippets
 %defattr(644,root,root,755)
+%doc xmlsnippets/{AUTHORS,ChangeLog,NEWS,README}
 %{_libdir}/geany/xmlsnippets.so
-
