@@ -2,7 +2,7 @@ Summary:	A collection of different plugins for Geany
 Summary(pl.UTF-8):	Zbiór różnych wtyczek dla Geany
 Name:		geany-plugins
 Version:	1.36
-Release:	2
+Release:	3
 License:	GPL v2+
 Group:		Libraries
 Source0:	https://plugins.geany.org/geany-plugins/%{name}-%{version}.tar.gz
@@ -731,6 +731,7 @@ rm -rf $RPM_BUILD_ROOT
 %doc NEWS README
 %attr(755,root,root) %{_libdir}/*.so.*.*.*
 %attr(755,root,root) %ghost %{_libdir}/*.so.0
+%dir %{_libdir}/%{name}
 %dir %{_datadir}/%{name}
 
 %files addons
