@@ -2,7 +2,7 @@ Summary:	A collection of different plugins for Geany
 Summary(pl.UTF-8):	Zbiór różnych wtyczek dla Geany
 Name:		geany-plugins
 Version:	1.36
-Release:	1
+Release:	2
 License:	GPL v2+
 Group:		Libraries
 Source0:	https://plugins.geany.org/geany-plugins/%{name}-%{version}.tar.gz
@@ -729,115 +729,117 @@ rm -rf $RPM_BUILD_ROOT
 %files -f %{name}.lang
 %defattr(644,root,root,755)
 %doc NEWS README
-%{_libdir}/*.so*
+%attr(755,root,root) %{_libdir}/*.so.*.*.*
+%attr(755,root,root) %ghost %{_libdir}/*.so.0
 %dir %{_datadir}/%{name}
 
 %files addons
 %defattr(644,root,root,755)
 %doc addons/{AUTHORS,ChangeLog,NEWS,README}
-%{_libdir}/geany/addons.so
+%attr(755,root,root) %{_libdir}/geany/addons.so
 
 %files autoclose
 %defattr(644,root,root,755)
 %doc autoclose/{AUTHORS,ChangeLog,NEWS,README}
-%{_libdir}/geany/autoclose.so
+%attr(755,root,root) %{_libdir}/geany/autoclose.so
 
 %files automark
 %defattr(644,root,root,755)
 %doc automark/{AUTHORS,ChangeLog,NEWS,README}
-%{_libdir}/geany/automark.so
+%attr(755,root,root) %{_libdir}/geany/automark.so
 
 %files codenav
 %defattr(644,root,root,755)
 %doc codenav/{AUTHORS,ChangeLog,NEWS,README}
-%{_libdir}/geany/codenav.so
+%attr(755,root,root) %{_libdir}/geany/codenav.so
 
 %files commander
 %defattr(644,root,root,755)
 %doc commander/{AUTHORS,ChangeLog,NEWS,README}
-%{_libdir}/geany/commander.so
+%attr(755,root,root) %{_libdir}/geany/commander.so
 
 %files debugger
 %defattr(644,root,root,755)
 %doc commander/{AUTHORS,ChangeLog,NEWS,README}
-%{_libdir}/geany/debugger.so
+%attr(755,root,root) %{_libdir}/geany/debugger.so
 %dir %{_datadir}/%{name}/debugger
 %{_datadir}/%{name}/debugger/*
 
 %files defineformat
 %defattr(644,root,root,755)
 %doc defineformat/{AUTHORS,ChangeLog,NEWS,README}
-%{_libdir}/geany/defineformat.so
+%attr(755,root,root) %{_libdir}/geany/defineformat.so
 
 %files geanyctags
 %defattr(644,root,root,755)
 %doc geanyctags/{AUTHORS,ChangeLog,NEWS,README}
-%{_libdir}/geany/geanyctags.so
+%attr(755,root,root) %{_libdir}/geany/geanyctags.so
 
 %files geanydoc
 %defattr(644,root,root,755)
 %doc geanydoc/{AUTHORS,ChangeLog,NEWS,README}
-%{_libdir}/geany/geanydoc.so
+%attr(755,root,root) %{_libdir}/geany/geanydoc.so
 
 %files geanyextrasel
 %defattr(644,root,root,755)
 %doc geanyextrasel/{AUTHORS,ChangeLog,NEWS,README}
-%{_libdir}/geany/geanyextrasel.so
+%attr(755,root,root) %{_libdir}/geany/geanyextrasel.so
 
 %files geanyinsertnum
 %defattr(644,root,root,755)
 %doc geanyinsertnum/{AUTHORS,ChangeLog,NEWS,README}
-%{_libdir}/geany/geanyinsertnum.so
+%attr(755,root,root) %{_libdir}/geany/geanyinsertnum.so
 
 %files geanylua
 %defattr(644,root,root,755)
 %doc geanylua/{AUTHORS,ChangeLog,NEWS,README} geanylua/docs/*.html
-%{_libdir}/geany/geanylua.so
-%{_libdir}/%{name}/geanylua/*.so
+%attr(755,root,root) %{_libdir}/geany/geanylua.so
+%dir %{_libdir}/%{name}/geanylua
+%attr(755,root,root) %{_libdir}/%{name}/geanylua/*.so
 %dir %{_datadir}/%{name}/geanylua
 %{_datadir}/%{name}/geanylua/*
 
 %files geanymacro
 %defattr(644,root,root,755)
 %doc geanymacro/{AUTHORS,ChangeLog,NEWS,README}
-%{_libdir}/geany/geanymacro.so
+%attr(755,root,root) %{_libdir}/geany/geanymacro.so
 
 %files geanyminiscript
 %defattr(644,root,root,755)
 %doc geanyminiscript/{AUTHORS,ChangeLog,NEWS,README}
-%{_libdir}/geany/geanyminiscript.so
+%attr(755,root,root) %{_libdir}/geany/geanyminiscript.so
 
 %files geanynumberedbookmarks
 %defattr(644,root,root,755)
 %doc geanynumberedbookmarks/{AUTHORS,ChangeLog,NEWS,README}
-%{_libdir}/geany/geanynumberedbookmarks.so
+%attr(755,root,root) %{_libdir}/geany/geanynumberedbookmarks.so
 
 %files geanypg
 %defattr(644,root,root,755)
 %doc geanypg/{AUTHORS,ChangeLog,NEWS,README}
-%{_libdir}/geany/geanypg.so
+%attr(755,root,root) %{_libdir}/geany/geanypg.so
 
 %files geanyprj
 %defattr(644,root,root,755)
 %doc geanyprj/{AUTHORS,ChangeLog,NEWS,README}
-%{_libdir}/geany/geanyprj.so
+%attr(755,root,root) %{_libdir}/geany/geanyprj.so
 
 %files geanypy
 %defattr(644,root,root,755)
 %doc geanypy/{AUTHORS,ChangeLog,NEWS,README}
-%{_libdir}/geany/geanypy.so
+%attr(755,root,root) %{_libdir}/geany/geanypy.so
 %{_libdir}/geany/*.py
-%{_libdir}/geany/geanypy/*
+%{_libdir}/geany/geanypy
 
 %files geanyvc
 %defattr(644,root,root,755)
 %doc geanyvc/{AUTHORS,ChangeLog,NEWS,README}
-%{_libdir}/geany/geanyvc.so
+%attr(755,root,root) %{_libdir}/geany/geanyvc.so
 
 %files geniuspaste
 %defattr(644,root,root,755)
 %doc geniuspaste/{AUTHORS,ChangeLog,NEWS,README}
-%{_libdir}/geany/geniuspaste.so
+%attr(755,root,root) %{_libdir}/geany/geniuspaste.so
 %dir %{_datadir}/%{name}/geniuspaste
 %dir %{_datadir}/%{name}/geniuspaste/pastebins
 %{_datadir}/%{name}/geniuspaste/pastebins/*
@@ -845,112 +847,112 @@ rm -rf $RPM_BUILD_ROOT
 %files git-changebar
 %defattr(644,root,root,755)
 %doc git-changebar/{AUTHORS,ChangeLog,NEWS,README}
-%{_libdir}/geany/git-changebar.so
+%attr(755,root,root) %{_libdir}/geany/git-changebar.so
 %dir %{_datadir}/%{name}/git-changebar
 %{_datadir}/%{name}/git-changebar/*
 
 %files keyrecord
 %defattr(644,root,root,755)
 %doc keyrecord/{AUTHORS,ChangeLog,NEWS,README}
-%{_libdir}/geany/keyrecord.so
+%attr(755,root,root) %{_libdir}/geany/keyrecord.so
 
 %files latex
 %defattr(644,root,root,755)
 %doc latex/{AUTHORS,ChangeLog,NEWS,README} latex/doc/latex.pdf
-%{_libdir}/geany/latex.so
+%attr(755,root,root) %{_libdir}/geany/latex.so
 
 %files lineoperations
 %defattr(644,root,root,755)
 %doc lineoperations/{AUTHORS,ChangeLog,NEWS,README}
-%{_libdir}/geany/lineoperations.so
+%attr(755,root,root) %{_libdir}/geany/lineoperations.so
 
 %files lipsum
 %defattr(644,root,root,755)
 %doc lipsum/{AUTHORS,ChangeLog,NEWS,README}
-%{_libdir}/geany/lipsum.so
+%attr(755,root,root) %{_libdir}/geany/lipsum.so
 
 %files multiterm
 %defattr(644,root,root,755)
 %doc multiterm/{AUTHORS,ChangeLog,NEWS,README,TODO}
-%{_libdir}/geany/multiterm.so
+%attr(755,root,root) %{_libdir}/geany/multiterm.so
 
 %files overview
 %defattr(644,root,root,755)
 %doc overview/{AUTHORS,ChangeLog,NEWS,README}
-%{_libdir}/geany/overview.so
+%attr(755,root,root) %{_libdir}/geany/overview.so
 %dir %{_datadir}/%{name}/overview
 %{_datadir}/%{name}/overview/*
 
 %files pairtaghighlighter
 %defattr(644,root,root,755)
 %doc pairtaghighlighter/{AUTHORS,ChangeLog,NEWS,README}
-%{_libdir}/geany/pairtaghighlighter.so
+%attr(755,root,root) %{_libdir}/geany/pairtaghighlighter.so
 
 %files pohelper
 %defattr(644,root,root,755)
 %doc pohelper/{AUTHORS,ChangeLog,NEWS,README}
-%{_libdir}/geany/pohelper.so
+%attr(755,root,root) %{_libdir}/geany/pohelper.so
 %dir %{_datadir}/%{name}/pohelper
 %{_datadir}/%{name}/pohelper/*
 
 %files pretty-printer
 %defattr(644,root,root,755)
 %doc pretty-printer/{AUTHORS,NEWS,README}
-%{_libdir}/geany/pretty-printer.so
+%attr(755,root,root) %{_libdir}/geany/pretty-printer.so
 
 %files projectorganizer
 %defattr(644,root,root,755)
 %doc projectorganizer/{AUTHORS,ChangeLog,NEWS,README}
-%{_libdir}/geany/projectorganizer.so
+%attr(755,root,root) %{_libdir}/geany/projectorganizer.so
 
 %files scope
 %defattr(644,root,root,755)
 %doc scope/{AUTHORS,ChangeLog,NEWS,README} scope/docs/*.html
-%{_libdir}/geany/scope.so
+%attr(755,root,root) %{_libdir}/geany/scope.so
 %dir %{_datadir}/%{name}/scope
 %{_datadir}/%{name}/scope/*
 
 %files sendmail
 %defattr(644,root,root,755)
 %doc sendmail/{AUTHORS,ChangeLog,NEWS,README}
-%{_libdir}/geany/sendmail.so
+%attr(755,root,root) %{_libdir}/geany/sendmail.so
 
 %files shiftcolumn
 %defattr(644,root,root,755)
 %doc shiftcolumn/{AUTHORS,ChangeLog,NEWS,README}
-%{_libdir}/geany/shiftcolumn.so
+%attr(755,root,root) %{_libdir}/geany/shiftcolumn.so
 
 %files spellcheck
 %defattr(644,root,root,755)
 %doc spellcheck/{AUTHORS,ChangeLog,NEWS,README}
-%{_libdir}/geany/spellcheck.so
+%attr(755,root,root) %{_libdir}/geany/spellcheck.so
 
 %files tableconvert
 %defattr(644,root,root,755)
 %doc tableconvert/{AUTHORS,ChangeLog,NEWS,README}
-%{_libdir}/geany/tableconvert.so
+%attr(755,root,root) %{_libdir}/geany/tableconvert.so
 
 %files treebrowser
 %defattr(644,root,root,755)
 %doc treebrowser/{AUTHORS,ChangeLog,NEWS,README}
-%{_libdir}/geany/treebrowser.so
+%attr(755,root,root) %{_libdir}/geany/treebrowser.so
 
 %files updatechecker
 %defattr(644,root,root,755)
 %doc updatechecker/{AUTHORS,ChangeLog,NEWS,README}
-%{_libdir}/geany/updatechecker.so
+%attr(755,root,root) %{_libdir}/geany/updatechecker.so
 
 %files vimode
 %defattr(644,root,root,755)
 %doc vimode/{AUTHORS,ChangeLog,NEWS,README}
-%{_libdir}/geany/vimode.so
+%attr(755,root,root) %{_libdir}/geany/vimode.so
 
 %files workbench
 %defattr(644,root,root,755)
 %doc workbench/{AUTHORS,ChangeLog,NEWS,README}
-%{_libdir}/geany/workbench.so
+%attr(755,root,root) %{_libdir}/geany/workbench.so
 
 %files xmlsnippets
 %defattr(644,root,root,755)
 %doc xmlsnippets/{AUTHORS,ChangeLog,NEWS,README}
-%{_libdir}/geany/xmlsnippets.so
+%attr(755,root,root) %{_libdir}/geany/xmlsnippets.so
