@@ -2,11 +2,12 @@ Summary:	A collection of different plugins for Geany
 Summary(pl.UTF-8):	Zbiór różnych wtyczek dla Geany
 Name:		geany-plugins
 Version:	1.36
-Release:	3
+Release:	4
 License:	GPL v2+
 Group:		Libraries
 Source0:	https://plugins.geany.org/geany-plugins/%{name}-%{version}.tar.gz
 # Source0-md5:	76501a5adb92633cc41d0b6453692454
+Patch0:		libgit2-1.0.patch
 URL:		https://plugins.geany.org
 BuildRequires:	check-devel
 BuildRequires:	cppcheck
@@ -703,6 +704,7 @@ wpisaniu otwierającego tagu.
 
 %prep
 %setup -q
+%patch0 -p1
 
 %build
 %configure
