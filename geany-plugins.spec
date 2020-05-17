@@ -2,13 +2,14 @@ Summary:	A collection of different plugins for Geany
 Summary(pl.UTF-8):	Zbiór różnych wtyczek dla Geany
 Name:		geany-plugins
 Version:	1.36
-Release:	4
+Release:	5
 License:	GPL v2+
 Group:		Libraries
 Source0:	https://plugins.geany.org/geany-plugins/%{name}-%{version}.tar.gz
 # Source0-md5:	76501a5adb92633cc41d0b6453692454
 Patch0:		libgit2-1.0.patch
 URL:		https://plugins.geany.org
+BuildRequires:	GConf2-devel
 BuildRequires:	check-devel
 BuildRequires:	cppcheck
 BuildRequires:	docutils
@@ -16,12 +17,15 @@ BuildRequires:	enchant2-devel
 BuildRequires:	geany-devel >= 1.36
 BuildRequires:	gpgme-devel
 BuildRequires:	gtk+2-devel
+BuildRequires:	gtk-webkit-devel
 BuildRequires:	gtkspell-devel
 BuildRequires:	libgit2-devel
 BuildRequires:	libmarkdown-devel
 BuildRequires:	libtool
+BuildRequires:	libwnck2-devel
 BuildRequires:	lua51-devel
 BuildRequires:	python-pygtk-devel
+BuildRequires:	vala
 BuildRequires:	vte0-devel
 Requires:	geany >= 1.36
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -130,6 +134,20 @@ help you to write multiline defines with aligned backslash.
 %description defineformat -l pl.UTF-8
 Ta wtyczka pomoże Ci napisać definicje wielowierszowe z wyrównanym
 odwrotnym ukośnikiem.
+
+%package devhelp
+Summary:	devhelp plugin for Geany
+Summary(pl.UTF-8):	: Wtyczka devhelp dla Geany
+Group:		Libraries
+Requires:	%{name} = %{version}-%{release}
+
+%description devhelp
+This plugin embeds an API documentation browser and search
+functionality directly into Geany's user interface.
+
+%description devhelp -l pl.UTF-8
+Ta wtyczka osadza przeglądarkę dokumentacji API i wyszukiwanie
+funkcjonalność bezpośrednio w interfejsie użytkownika Geany.
 
 %package geanyctags
 Summary:	geanyctags plugin for Geany
@@ -422,6 +440,22 @@ to insert placeholder text into your document.
 Lipsum to wtyczka dla Geany, która implementuje generator Lorem Ipsum
 do wstawiania tekstu zastępczego do dokumentu.
 
+%package markdown
+Summary:	markdown plugin for Geany
+Summary(pl.UTF-8):	: Wtyczka markdown dla Geany
+Group:		Libraries
+Requires:	%{name} = %{version}-%{release}
+
+%description markdown
+This plugin provides a real-time preview of rendered Markdown, that
+is, Markdown converted to HTML and inserted into an HTML template and
+loaded into a WebKit view.
+
+%description markdown -l pl.UTF-8
+Ta wtyczka zapewnia podgląd w czasie rzeczywistym renderowanego
+znacznika, to znaczy znacznika przekonwertowanego na HTML i
+wstawionego do szablonu HTML i załadowanego do widoku WebKit.
+
 %package multiterm
 Summary:	multiterm plugin for Geany
 Summary(pl.UTF-8):	: Wtyczka multiterm dla Geany
@@ -666,6 +700,21 @@ Vimode is a Vim-mode plugin for Geany
 %description vimode -l pl.UTF-8
 Vimode to wtyczka trybu Vim dla Geany
 
+%package webhelper
+Summary:	webhelper plugin for Geany
+Summary(pl.UTF-8):	: Wtyczka webhelper dla Geany
+Group:		Libraries
+Requires:	%{name} = %{version}-%{release}
+
+%description webhelper
+WebHelper is a plugin for Geany that provides some web development
+facilities, such as a web page preview and some debugging tools (web
+inspector).
+
+%description webhelper -l pl.UTF-8
+WebHelper to wtyczka dla Geany, która zapewnia pewne funkcje
+programistyczne, takie jak podgląd strony internetowej i niektóre
+narzędzia do debugowania (web inspector).
 
 %package workbench
 Summary:	workbench plugin for Geany
@@ -773,6 +822,13 @@ rm -rf $RPM_BUILD_ROOT
 %doc defineformat/{AUTHORS,ChangeLog,NEWS,README}
 %attr(755,root,root) %{_libdir}/geany/defineformat.so
 
+%files devhelp
+%defattr(644,root,root,755)
+%doc devhelp/{AUTHORS,ChangeLog,NEWS,README}
+%attr(755,root,root) %{_libdir}/geany/devhelp.so
+%dir %{_datadir}/%{name}/devhelp
+%{_datadir}/%{name}/devhelp/*
+
 %files geanyctags
 %defattr(644,root,root,755)
 %doc geanyctags/{AUTHORS,ChangeLog,NEWS,README}
@@ -874,6 +930,11 @@ rm -rf $RPM_BUILD_ROOT
 %doc lipsum/{AUTHORS,ChangeLog,NEWS,README}
 %attr(755,root,root) %{_libdir}/geany/lipsum.so
 
+%files markdown
+%defattr(644,root,root,755)
+%doc markdown/{AUTHORS,ChangeLog,NEWS,README}
+%attr(755,root,root) %{_libdir}/geany/markdown.so
+
 %files multiterm
 %defattr(644,root,root,755)
 %doc multiterm/{AUTHORS,ChangeLog,NEWS,README,TODO}
@@ -949,6 +1010,11 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc vimode/{AUTHORS,ChangeLog,NEWS,README}
 %attr(755,root,root) %{_libdir}/geany/vimode.so
+
+%files webhelper
+%defattr(644,root,root,755)
+%doc webhelper/{AUTHORS,ChangeLog,NEWS,README}
+%attr(755,root,root) %{_libdir}/geany/webhelper.so
 
 %files workbench
 %defattr(644,root,root,755)
