@@ -1,33 +1,33 @@
 Summary:	A collection of different plugins for Geany
 Summary(pl.UTF-8):	Zbiór różnych wtyczek dla Geany
 Name:		geany-plugins
-Version:	1.36
-Release:	5
+Version:	1.37
+Release:	1
 License:	GPL v2+
 Group:		Libraries
 Source0:	https://plugins.geany.org/geany-plugins/%{name}-%{version}.tar.gz
-# Source0-md5:	76501a5adb92633cc41d0b6453692454
-Patch0:		libgit2-1.0.patch
+# Source0-md5:	e1ea1ef1dd3963186b1d14d214261509
 URL:		https://plugins.geany.org
-BuildRequires:	GConf2-devel
 BuildRequires:	check-devel
 BuildRequires:	cppcheck
 BuildRequires:	docutils
 BuildRequires:	enchant2-devel
-BuildRequires:	geany-devel >= 1.36
+BuildRequires:	geany-devel >= 1.37
 BuildRequires:	gpgme-devel
-BuildRequires:	gtk+2-devel
-BuildRequires:	gtk-webkit-devel
-BuildRequires:	gtkspell-devel
+BuildRequires:	gtk+3-devel
+BuildRequires:	gtkspell3-devel
 BuildRequires:	libgit2-devel
 BuildRequires:	libmarkdown-devel
 BuildRequires:	libtool
-BuildRequires:	libwnck2-devel
 BuildRequires:	lua51-devel
-BuildRequires:	python-pygtk-devel
 BuildRequires:	vala
-BuildRequires:	vte0-devel
-Requires:	geany >= 1.36
+BuildRequires:	vte-devel
+Requires:	geany >= 1.37
+Obsoletes:	geany-plugins-devhelp < 1.37
+Obsoletes:	geany-plugins-geanypy < 1.37
+Obsoletes:	geany-plugins-markdown < 1.37
+Obsoletes:	geany-plugins-multiterm < 1.37
+Obsoletes:	geany-plugins-webhelper < 1.37
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -135,19 +135,20 @@ help you to write multiline defines with aligned backslash.
 Ta wtyczka pomoże Ci napisać definicje wielowierszowe z wyrównanym
 odwrotnym ukośnikiem.
 
-%package devhelp
-Summary:	devhelp plugin for Geany
-Summary(pl.UTF-8):	: Wtyczka devhelp dla Geany
-Group:		Libraries
-Requires:	%{name} = %{version}-%{release}
+# Incompatible with GTK+3 yet
+#%package devhelp
+#Summary:	devhelp plugin for Geany
+#Summary(pl.UTF-8):	: Wtyczka devhelp dla Geany
+#Group:		Libraries
+#Requires:	%{name} = %{version}-%{release}
 
-%description devhelp
-This plugin embeds an API documentation browser and search
-functionality directly into Geany's user interface.
+#%description devhelp
+#This plugin embeds an API documentation browser and search
+#functionality directly into Geany's user interface.
 
-%description devhelp -l pl.UTF-8
-Ta wtyczka osadza przeglądarkę dokumentacji API i wyszukiwanie
-funkcjonalność bezpośrednio w interfejsie użytkownika Geany.
+#%description devhelp -l pl.UTF-8
+#Ta wtyczka osadza przeglądarkę dokumentacji API i wyszukiwanie
+#funkcjonalność bezpośrednio w interfejsie użytkownika Geany.
 
 %package geanyctags
 Summary:	geanyctags plugin for Geany
@@ -307,19 +308,20 @@ Geanyprj is alternative project manager for Geany fast light IDE.
 %description geanyprj -l pl.UTF-8
 Geanyprj jest alternatywnym menedżerem projektów dla Geany IDE.
 
-%package geanypy
-Summary:	geanypy plugin for Geany
-Summary(pl.UTF-8):	: Wtyczka geanypy dla Geany
-Group:		Libraries
-Requires:	%{name} = %{version}-%{release}
+# Incompatible with GTK+3 yet
+#%package geanypy
+#Summary:	geanypy plugin for Geany
+#Summary(pl.UTF-8):	: Wtyczka geanypy dla Geany
+#Group:		Libraries
+#Requires:	%{name} = %{version}-%{release}
 
-%description geanypy
-Write Geany plugins in Python! Geanypy provides most of the standard
-Geany C API for Python.
+#%description geanypy
+#Write Geany plugins in Python! Geanypy provides most of the standard
+#Geany C API for Python.
 
-%description geanypy -l pl.UTF-8
-Pisz wtyczki Geany w Pythonie! Geanypy zapewnia większość
-standardowych API C Geany dla Pythona.
+#%description geanypy -l pl.UTF-8
+#Pisz wtyczki Geany w Pythonie! Geanypy zapewnia większość
+#standardowych API C Geany dla Pythona.
 
 %package geanyvc
 Summary:	geanyvc plugin for Geany
@@ -440,37 +442,39 @@ to insert placeholder text into your document.
 Lipsum to wtyczka dla Geany, która implementuje generator Lorem Ipsum
 do wstawiania tekstu zastępczego do dokumentu.
 
-%package markdown
-Summary:	markdown plugin for Geany
-Summary(pl.UTF-8):	: Wtyczka markdown dla Geany
-Group:		Libraries
-Requires:	%{name} = %{version}-%{release}
+# Incompatible with GTK+3 yet
+#%package markdown
+#Summary:	markdown plugin for Geany
+#Summary(pl.UTF-8):	: Wtyczka markdown dla Geany
+#Group:		Libraries
+#Requires:	%{name} = %{version}-%{release}
 
-%description markdown
-This plugin provides a real-time preview of rendered Markdown, that
-is, Markdown converted to HTML and inserted into an HTML template and
-loaded into a WebKit view.
+#%description markdown
+#This plugin provides a real-time preview of rendered Markdown, that
+#is, Markdown converted to HTML and inserted into an HTML template and
+#loaded into a WebKit view.
 
-%description markdown -l pl.UTF-8
-Ta wtyczka zapewnia podgląd w czasie rzeczywistym renderowanego
-znacznika, to znaczy znacznika przekonwertowanego na HTML i
-wstawionego do szablonu HTML i załadowanego do widoku WebKit.
+#%description markdown -l pl.UTF-8
+#Ta wtyczka zapewnia podgląd w czasie rzeczywistym renderowanego
+#znacznika, to znaczy znacznika przekonwertowanego na HTML i
+#wstawionego do szablonu HTML i załadowanego do widoku WebKit.
 
-%package multiterm
-Summary:	multiterm plugin for Geany
-Summary(pl.UTF-8):	: Wtyczka multiterm dla Geany
-Group:		Libraries
-Requires:	%{name} = %{version}-%{release}
+# Incompatible with GTK+3 yet
+#%package multiterm
+#Summary:	multiterm plugin for Geany
+#Summary(pl.UTF-8):	: Wtyczka multiterm dla Geany
+#Group:		Libraries
+#Requires:	%{name} = %{version}-%{release}
 
-%description multiterm
-MultiTerm is similar to Geany's built-in VTE terminal except that it
-supports multiple terminals in tabs and supports different shells in
-each of the terminal tabs.
+#%description multiterm
+#MultiTerm is similar to Geany's built-in VTE terminal except that it
+#supports multiple terminals in tabs and supports different shells in
+#each of the terminal tabs.
 
-%description multiterm -l pl.UTF-8
-MultiTerm jest podobne do wbudowanego w Geany terminala VTE, z tą
-różnicą, że wspiera wiele terminali w zakładkach i różnie powłoki w
-każdej zakłądce terminalowej.
+#%description multiterm -l pl.UTF-8
+#MultiTerm jest podobne do wbudowanego w Geany terminala VTE, z tą
+#różnicą, że wspiera wiele terminali w zakładkach i różnie powłoki w
+#każdej zakłądce terminalowej.
 
 %package overview
 Summary:	overview plugin for Geany
@@ -700,21 +704,22 @@ Vimode is a Vim-mode plugin for Geany
 %description vimode -l pl.UTF-8
 Vimode to wtyczka trybu Vim dla Geany
 
-%package webhelper
-Summary:	webhelper plugin for Geany
-Summary(pl.UTF-8):	: Wtyczka webhelper dla Geany
-Group:		Libraries
-Requires:	%{name} = %{version}-%{release}
+# Incompatible with GTK+3 yet
+#%package webhelper
+#Summary:	webhelper plugin for Geany
+#Summary(pl.UTF-8):	: Wtyczka webhelper dla Geany
+#Group:		Libraries
+#Requires:	%{name} = %{version}-%{release}
 
-%description webhelper
-WebHelper is a plugin for Geany that provides some web development
-facilities, such as a web page preview and some debugging tools (web
-inspector).
+#%description webhelper
+#WebHelper is a plugin for Geany that provides some web development
+#facilities, such as a web page preview and some debugging tools (web
+#inspector).
 
-%description webhelper -l pl.UTF-8
-WebHelper to wtyczka dla Geany, która zapewnia pewne funkcje
-programistyczne, takie jak podgląd strony internetowej i niektóre
-narzędzia do debugowania (web inspector).
+#%description webhelper -l pl.UTF-8
+#WebHelper to wtyczka dla Geany, która zapewnia pewne funkcje
+#programistyczne, takie jak podgląd strony internetowej i niektóre
+#narzędzia do debugowania (web inspector).
 
 %package workbench
 Summary:	workbench plugin for Geany
@@ -753,7 +758,6 @@ wpisaniu otwierającego tagu.
 
 %prep
 %setup -q
-%patch0 -p1
 
 %build
 %configure
@@ -768,7 +772,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %{__rm} -r $RPM_BUILD_ROOT%{_docdir}/%{name}
 %{__rm} $RPM_BUILD_ROOT%{_libdir}/{,geany/,%{name}/geanylua/}*.la
-
+%{__rm} $RPM_BUILD_ROOT%{_libdir}/libgeanypluginutils.so
 # fix locales
 %{__rm} -r $RPM_BUILD_ROOT%{_localedir}/el
 
@@ -822,12 +826,12 @@ rm -rf $RPM_BUILD_ROOT
 %doc defineformat/{AUTHORS,ChangeLog,NEWS,README}
 %attr(755,root,root) %{_libdir}/geany/defineformat.so
 
-%files devhelp
-%defattr(644,root,root,755)
-%doc devhelp/{AUTHORS,ChangeLog,NEWS,README}
-%attr(755,root,root) %{_libdir}/geany/devhelp.so
-%dir %{_datadir}/%{name}/devhelp
-%{_datadir}/%{name}/devhelp/*
+#%files devhelp
+#%defattr(644,root,root,755)
+#%doc devhelp/{AUTHORS,ChangeLog,NEWS,README}
+#%attr(755,root,root) %{_libdir}/geany/devhelp.so
+#%dir %{_datadir}/%{name}/devhelp
+#%{_datadir}/%{name}/devhelp/*
 
 %files geanyctags
 %defattr(644,root,root,755)
@@ -883,12 +887,12 @@ rm -rf $RPM_BUILD_ROOT
 %doc geanyprj/{AUTHORS,ChangeLog,NEWS,README}
 %attr(755,root,root) %{_libdir}/geany/geanyprj.so
 
-%files geanypy
-%defattr(644,root,root,755)
-%doc geanypy/{AUTHORS,ChangeLog,NEWS,README}
-%attr(755,root,root) %{_libdir}/geany/geanypy.so
-%{_libdir}/geany/*.py
-%{_libdir}/geany/geanypy
+#%files geanypy
+#%defattr(644,root,root,755)
+#%doc geanypy/{AUTHORS,ChangeLog,NEWS,README}
+#%attr(755,root,root) %{_libdir}/geany/geanypy.so
+#%{_libdir}/geany/*.py
+#%{_libdir}/geany/geanypy
 
 %files geanyvc
 %defattr(644,root,root,755)
@@ -930,15 +934,15 @@ rm -rf $RPM_BUILD_ROOT
 %doc lipsum/{AUTHORS,ChangeLog,NEWS,README}
 %attr(755,root,root) %{_libdir}/geany/lipsum.so
 
-%files markdown
-%defattr(644,root,root,755)
-%doc markdown/{AUTHORS,ChangeLog,NEWS,README}
-%attr(755,root,root) %{_libdir}/geany/markdown.so
+#%files markdown
+#%defattr(644,root,root,755)
+#%doc markdown/{AUTHORS,ChangeLog,NEWS,README}
+#%attr(755,root,root) %{_libdir}/geany/markdown.so
 
-%files multiterm
-%defattr(644,root,root,755)
-%doc multiterm/{AUTHORS,ChangeLog,NEWS,README,TODO}
-%attr(755,root,root) %{_libdir}/geany/multiterm.so
+#%files multiterm
+#%defattr(644,root,root,755)
+#%doc multiterm/{AUTHORS,ChangeLog,NEWS,README,TODO}
+#%attr(755,root,root) %{_libdir}/geany/multiterm.so
 
 %files overview
 %defattr(644,root,root,755)
@@ -1011,10 +1015,10 @@ rm -rf $RPM_BUILD_ROOT
 %doc vimode/{AUTHORS,ChangeLog,NEWS,README}
 %attr(755,root,root) %{_libdir}/geany/vimode.so
 
-%files webhelper
-%defattr(644,root,root,755)
-%doc webhelper/{AUTHORS,ChangeLog,NEWS,README}
-%attr(755,root,root) %{_libdir}/geany/webhelper.so
+#%files webhelper
+#%defattr(644,root,root,755)
+#%doc webhelper/{AUTHORS,ChangeLog,NEWS,README}
+#%attr(755,root,root) %{_libdir}/geany/webhelper.so
 
 %files workbench
 %defattr(644,root,root,755)
