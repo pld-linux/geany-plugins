@@ -2,7 +2,7 @@ Summary:	A collection of different plugins for Geany
 Summary(pl.UTF-8):	Zbiór różnych wtyczek dla Geany
 Name:		geany-plugins
 Version:	1.37
-Release:	1
+Release:	2
 License:	GPL v2+
 Group:		Libraries
 Source0:	https://plugins.geany.org/geany-plugins/%{name}-%{version}.tar.gz
@@ -25,7 +25,6 @@ BuildRequires:	vte-devel
 Requires:	geany >= 1.37
 Obsoletes:	geany-plugins-devhelp < 1.37
 Obsoletes:	geany-plugins-geanypy < 1.37
-Obsoletes:	geany-plugins-markdown < 1.37
 Obsoletes:	geany-plugins-multiterm < 1.37
 Obsoletes:	geany-plugins-webhelper < 1.37
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -442,22 +441,21 @@ to insert placeholder text into your document.
 Lipsum to wtyczka dla Geany, która implementuje generator Lorem Ipsum
 do wstawiania tekstu zastępczego do dokumentu.
 
-# Incompatible with GTK+3 yet
-#%package markdown
-#Summary:	markdown plugin for Geany
-#Summary(pl.UTF-8):	: Wtyczka markdown dla Geany
-#Group:		Libraries
-#Requires:	%{name} = %{version}-%{release}
+%package markdown
+Summary:	markdown plugin for Geany
+Summary(pl.UTF-8):	: Wtyczka markdown dla Geany
+Group:		Libraries
+Requires:	%{name} = %{version}-%{release}
 
-#%description markdown
-#This plugin provides a real-time preview of rendered Markdown, that
-#is, Markdown converted to HTML and inserted into an HTML template and
-#loaded into a WebKit view.
+%description markdown
+This plugin provides a real-time preview of rendered Markdown, that
+is, Markdown converted to HTML and inserted into an HTML template and
+loaded into a WebKit view.
 
-#%description markdown -l pl.UTF-8
-#Ta wtyczka zapewnia podgląd w czasie rzeczywistym renderowanego
-#znacznika, to znaczy znacznika przekonwertowanego na HTML i
-#wstawionego do szablonu HTML i załadowanego do widoku WebKit.
+%description markdown -l pl.UTF-8
+Ta wtyczka zapewnia podgląd w czasie rzeczywistym renderowanego
+znacznika, to znaczy znacznika przekonwertowanego na HTML i
+wstawionego do szablonu HTML i załadowanego do widoku WebKit.
 
 # Incompatible with GTK+3 yet
 #%package multiterm
@@ -934,10 +932,10 @@ rm -rf $RPM_BUILD_ROOT
 %doc lipsum/{AUTHORS,ChangeLog,NEWS,README}
 %attr(755,root,root) %{_libdir}/geany/lipsum.so
 
-#%files markdown
-#%defattr(644,root,root,755)
-#%doc markdown/{AUTHORS,ChangeLog,NEWS,README}
-#%attr(755,root,root) %{_libdir}/geany/markdown.so
+%files markdown
+%defattr(644,root,root,755)
+%doc markdown/{AUTHORS,ChangeLog,NEWS,README}
+%attr(755,root,root) %{_libdir}/geany/markdown.so
 
 #%files multiterm
 #%defattr(644,root,root,755)
