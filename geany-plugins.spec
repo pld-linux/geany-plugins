@@ -12,7 +12,7 @@ BuildRequires:	check-devel
 BuildRequires:	cppcheck
 BuildRequires:	docutils
 BuildRequires:	enchant2-devel
-BuildRequires:	geany-devel >= 1.37
+BuildRequires:	geany-devel >= 1.38
 BuildRequires:	gpgme-devel
 BuildRequires:	gtk+3-devel
 BuildRequires:	gtkspell3-devel
@@ -22,11 +22,10 @@ BuildRequires:	libtool
 BuildRequires:	lua51-devel
 BuildRequires:	vala
 BuildRequires:	vte-devel
-Requires:	geany >= 1.37
+Requires:	geany >= 1.38
 Obsoletes:	geany-plugins-devhelp < 1.37
 Obsoletes:	geany-plugins-geanypy < 1.37
 Obsoletes:	geany-plugins-multiterm < 1.37
-Obsoletes:	geany-plugins-webhelper < 1.37
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -48,9 +47,8 @@ This plugin adds various small addons to Geany which aren't worth an
 own plugin but might still useful for people.
 
 %description addons -l pl.UTF-8
-Ten plugin dodaje ró ż ne ma~B e dodatki do Geany, któ re nie zas~B
-uguj~E aby mie~G w~B asne pluginy ale wci~E ż s~E uż yteczne dla
-ludzi.
+Ten plugin dodaje różne małe dodatki do Geany, które nie zasługują aby
+mieć własne pluginy ale wciąż są użyteczne dla ludzi.
 
 %package autoclose
 Summary:	autoclose plugin for Geany
@@ -702,22 +700,21 @@ Vimode is a Vim-mode plugin for Geany
 %description vimode -l pl.UTF-8
 Vimode to wtyczka trybu Vim dla Geany
 
-# Incompatible with GTK+3 yet
-#%package webhelper
-#Summary:	webhelper plugin for Geany
-#Summary(pl.UTF-8):	: Wtyczka webhelper dla Geany
-#Group:		Libraries
-#Requires:	%{name} = %{version}-%{release}
+%package webhelper
+Summary:	webhelper plugin for Geany
+Summary(pl.UTF-8):	: Wtyczka webhelper dla Geany
+Group:		Libraries
+Requires:	%{name} = %{version}-%{release}
 
-#%description webhelper
-#WebHelper is a plugin for Geany that provides some web development
-#facilities, such as a web page preview and some debugging tools (web
-#inspector).
+%description webhelper
+WebHelper is a plugin for Geany that provides some web development
+facilities, such as a web page preview and some debugging tools (web
+inspector).
 
-#%description webhelper -l pl.UTF-8
-#WebHelper to wtyczka dla Geany, która zapewnia pewne funkcje
-#programistyczne, takie jak podgląd strony internetowej i niektóre
-#narzędzia do debugowania (web inspector).
+%description webhelper -l pl.UTF-8
+WebHelper to wtyczka dla Geany, która zapewnia pewne funkcje
+programistyczne, takie jak podgląd strony internetowej i niektóre
+narzędzia do debugowania (web inspector).
 
 %package workbench
 Summary:	workbench plugin for Geany
@@ -1013,10 +1010,10 @@ rm -rf $RPM_BUILD_ROOT
 %doc vimode/{AUTHORS,ChangeLog,NEWS,README}
 %attr(755,root,root) %{_libdir}/geany/vimode.so
 
-#%files webhelper
-#%defattr(644,root,root,755)
-#%doc webhelper/{AUTHORS,ChangeLog,NEWS,README}
-#%attr(755,root,root) %{_libdir}/geany/webhelper.so
+%files webhelper
+%defattr(644,root,root,755)
+%doc webhelper/{AUTHORS,ChangeLog,NEWS,README}
+%attr(755,root,root) %{_libdir}/geany/webhelper.so
 
 %files workbench
 %defattr(644,root,root,755)
