@@ -1010,10 +1010,12 @@ rm -rf $RPM_BUILD_ROOT
 %doc vimode/{AUTHORS,ChangeLog,NEWS,README}
 %attr(755,root,root) %{_libdir}/geany/vimode.so
 
+%ifarch %{x8664}
 %files webhelper
 %defattr(644,root,root,755)
 %doc webhelper/{AUTHORS,ChangeLog,NEWS,README}
 %attr(755,root,root) %{_libdir}/geany/webhelper.so
+%endif
 
 %files workbench
 %defattr(644,root,root,755)
