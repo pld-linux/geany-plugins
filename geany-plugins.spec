@@ -1,12 +1,12 @@
 Summary:	A collection of different plugins for Geany
 Summary(pl.UTF-8):	Zbiór różnych wtyczek dla Geany
 Name:		geany-plugins
-Version:	1.37
-Release:	4
+Version:	1.38
+Release:	1
 License:	GPL v2+
 Group:		Libraries
 Source0:	https://plugins.geany.org/geany-plugins/%{name}-%{version}.tar.gz
-# Source0-md5:	e1ea1ef1dd3963186b1d14d214261509
+# Source0-md5:	1d9f297ac49e54ab769b12ccef6df0b2
 URL:		https://plugins.geany.org
 BuildRequires:	check-devel
 BuildRequires:	cppcheck
