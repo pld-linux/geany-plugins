@@ -1,3 +1,8 @@
+# TODO: ctpl>=0.3 + docutils https://ctpl.tuxfamily.org/ for geanygendoc
+#
+# Conditional build:
+%bcond_without	cppcheck	# cppcheck to check geany-plugins source code
+
 Summary:	A collection of different plugins for Geany
 Summary(pl.UTF-8):	Zbiór różnych wtyczek dla Geany
 Name:		geany-plugins
@@ -7,22 +12,32 @@ License:	GPL v2+
 Group:		Libraries
 Source0:	https://plugins.geany.org/geany-plugins/%{name}-%{version}.tar.gz
 # Source0-md5:	1d9f297ac49e54ab769b12ccef6df0b2
-URL:		https://plugins.geany.org
+Patch0:		%{name}-libgit2.patch
+URL:		https://plugins.geany.org/
 BuildRequires:	check-devel
-BuildRequires:	cppcheck
+%{?with_cppcheck:BuildRequires:	cppcheck}
 BuildRequires:	docutils
-BuildRequires:	enchant2-devel
+BuildRequires:	enchant2-devel >= 2.2
+BuildRequires:	gdk-pixbuf2-devel >= 2.0
 BuildRequires:	geany-devel >= 1.38
+BuildRequires:	gettext-tools
+BuildRequires:	glib2-devel >= 1:2.22
 BuildRequires:	gpgme-devel
-BuildRequires:	gtk+3-devel
-BuildRequires:	gtkspell3-devel
-BuildRequires:	libgit2-devel
+BuildRequires:	gtk+3-devel >= 3.0
+BuildRequires:	gtk-webkit3-devel >= 1.1.18
+BuildRequires:	gtk-webkit4-devel >= 1.1.13
+BuildRequires:	gtkspell3-devel >= 3.0
+BuildRequires:	libgit2-devel >= 0.21
 BuildRequires:	libmarkdown-devel
+BuildRequires:	libsoup-devel >= 2.42
 BuildRequires:	libtool
-BuildRequires:	lua51-devel
+BuildRequires:	libxml2-devel >= 1:2.6.27
+BuildRequires:	lua51-devel >= 5.1
+BuildRequires:	pkgconfig
 BuildRequires:	vala
-BuildRequires:	vte-devel
+BuildRequires:	vte-devel >= 0.46
 Requires:	geany >= 1.38
+Requires:	glib2 >= 1:2.22
 Obsoletes:	geany-plugins-devhelp < 1.37
 Obsoletes:	geany-plugins-geanypy < 1.37
 Obsoletes:	geany-plugins-multiterm < 1.37
@@ -525,6 +540,7 @@ Summary:	pretty-printer plugin for Geany
 Summary(pl.UTF-8):	: Wtyczka pretty-printer dla Geany
 Group:		Libraries
 Requires:	%{name} = %{version}-%{release}
+Requires:	libxml2 >= 1:2.6.27
 
 %description pretty-printer
 Formats an XML file and makes it human-readable.
@@ -616,6 +632,7 @@ Summary:	spellcheck plugin for Geany
 Summary(pl.UTF-8):	: Wtyczka spellcheck dla Geany
 Group:		Libraries
 Requires:	%{name} = %{version}-%{release}
+Requires:	enchant2 >= 2.2
 
 %description spellcheck
 This plugin checks the content of the current document in Geany with
@@ -679,6 +696,7 @@ Summary:	updatechecker plugin for Geany
 Summary(pl.UTF-8):	: Wtyczka updatechecker dla Geany
 Group:		Libraries
 Requires:	%{name} = %{version}-%{release}
+Requires:	libsoup >= 2.42
 
 %description updatechecker
 UpdateChecker is a plugin for Geany, which is able to check whether
@@ -734,7 +752,6 @@ wieloma projektami w geany. Możesz dodać projekty geany do "stołu
 roboczego". Stamtąd możesz dodawać katalogi do projektu, aby zarządzać
 plikami należącymi do projektu.
 
-
 %package xmlsnippets
 Summary:	xmlsnippets plugin for Geany
 Summary(pl.UTF-8):	: Wtyczka xmlsnippets dla Geany
@@ -753,11 +770,14 @@ wpisaniu otwierającego tagu.
 
 %prep
 %setup -q
+%patch0 -p1
 
 %build
-%configure
+%configure \
+	%{!?with_cppcheck:--disable-cppcheck} \
+	--disable-silent-rules
 
-%{__make} V=1
+%{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -768,8 +788,6 @@ rm -rf $RPM_BUILD_ROOT
 %{__rm} -r $RPM_BUILD_ROOT%{_docdir}/%{name}
 %{__rm} $RPM_BUILD_ROOT%{_libdir}/{,geany/,%{name}/geanylua/}*.la
 %{__rm} $RPM_BUILD_ROOT%{_libdir}/libgeanypluginutils.so
-# fix locales
-%{__rm} -r $RPM_BUILD_ROOT%{_localedir}/el
 
 %find_lang %{name}
 
@@ -779,8 +797,8 @@ rm -rf $RPM_BUILD_ROOT
 %files -f %{name}.lang
 %defattr(644,root,root,755)
 %doc NEWS README
-%attr(755,root,root) %{_libdir}/*.so.*.*.*
-%attr(755,root,root) %ghost %{_libdir}/*.so.0
+%attr(755,root,root) %{_libdir}/libgeanypluginutils.so.*.*.*
+%attr(755,root,root) %ghost %{_libdir}/libgeanypluginutils.so.0
 %dir %{_libdir}/%{name}
 %dir %{_datadir}/%{name}
 
@@ -813,8 +831,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc commander/{AUTHORS,ChangeLog,NEWS,README}
 %attr(755,root,root) %{_libdir}/geany/debugger.so
-%dir %{_datadir}/%{name}/debugger
-%{_datadir}/%{name}/debugger/*
+%{_datadir}/%{name}/debugger
 
 %files defineformat
 %defattr(644,root,root,755)
@@ -825,8 +842,7 @@ rm -rf $RPM_BUILD_ROOT
 #%defattr(644,root,root,755)
 #%doc devhelp/{AUTHORS,ChangeLog,NEWS,README}
 #%attr(755,root,root) %{_libdir}/geany/devhelp.so
-#%dir %{_datadir}/%{name}/devhelp
-#%{_datadir}/%{name}/devhelp/*
+#%{_datadir}/%{name}/devhelp
 
 %files geanyctags
 %defattr(644,root,root,755)
@@ -854,8 +870,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/geany/geanylua.so
 %dir %{_libdir}/%{name}/geanylua
 %attr(755,root,root) %{_libdir}/%{name}/geanylua/*.so
-%dir %{_datadir}/%{name}/geanylua
-%{_datadir}/%{name}/geanylua/*
+%{_datadir}/%{name}/geanylua
 
 %files geanymacro
 %defattr(644,root,root,755)
@@ -898,16 +913,13 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc geniuspaste/{AUTHORS,ChangeLog,NEWS,README}
 %attr(755,root,root) %{_libdir}/geany/geniuspaste.so
-%dir %{_datadir}/%{name}/geniuspaste
-%dir %{_datadir}/%{name}/geniuspaste/pastebins
-%{_datadir}/%{name}/geniuspaste/pastebins/*
+%{_datadir}/%{name}/geniuspaste
 
 %files git-changebar
 %defattr(644,root,root,755)
 %doc git-changebar/{AUTHORS,ChangeLog,NEWS,README}
 %attr(755,root,root) %{_libdir}/geany/git-changebar.so
-%dir %{_datadir}/%{name}/git-changebar
-%{_datadir}/%{name}/git-changebar/*
+%{_datadir}/%{name}/git-changebar
 
 %files keyrecord
 %defattr(644,root,root,755)
@@ -943,8 +955,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc overview/{AUTHORS,ChangeLog,NEWS,README}
 %attr(755,root,root) %{_libdir}/geany/overview.so
-%dir %{_datadir}/%{name}/overview
-%{_datadir}/%{name}/overview/*
+%{_datadir}/%{name}/overview
 
 %files pairtaghighlighter
 %defattr(644,root,root,755)
@@ -955,8 +966,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc pohelper/{AUTHORS,ChangeLog,NEWS,README}
 %attr(755,root,root) %{_libdir}/geany/pohelper.so
-%dir %{_datadir}/%{name}/pohelper
-%{_datadir}/%{name}/pohelper/*
+%{_datadir}/%{name}/pohelper
 
 %files pretty-printer
 %defattr(644,root,root,755)
@@ -972,8 +982,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc scope/{AUTHORS,ChangeLog,NEWS,README} scope/docs/*.html
 %attr(755,root,root) %{_libdir}/geany/scope.so
-%dir %{_datadir}/%{name}/scope
-%{_datadir}/%{name}/scope/*
+%{_datadir}/%{name}/scope
 
 %files sendmail
 %defattr(644,root,root,755)
@@ -1010,12 +1019,10 @@ rm -rf $RPM_BUILD_ROOT
 %doc vimode/{AUTHORS,ChangeLog,NEWS,README}
 %attr(755,root,root) %{_libdir}/geany/vimode.so
 
-%ifarch %{x8664}
 %files webhelper
 %defattr(644,root,root,755)
 %doc webhelper/{AUTHORS,ChangeLog,NEWS,README}
 %attr(755,root,root) %{_libdir}/geany/webhelper.so
-%endif
 
 %files workbench
 %defattr(644,root,root,755)
