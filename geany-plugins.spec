@@ -49,7 +49,7 @@ lightweight IDE.
 
 %description -l pl.UTF-8
 Geany-Plugins to zbiór różnych wtyczek dla Geany, lekiego IDE
-używającego GTK+2.
+używającego GTK+.
 
 %package addons
 Summary:	Various small plugins for Geany
@@ -62,12 +62,12 @@ This plugin adds various small addons to Geany which aren't worth an
 own plugin but might still useful for people.
 
 %description addons -l pl.UTF-8
-Ten plugin dodaje różne małe dodatki do Geany, które nie zasługują aby
-mieć własne pluginy ale wciąż są użyteczne dla ludzi.
+Ta wtyczka dodaje różne małe dodatki do Geany, które nie zasługują aby
+mieć własne wtyczki, ale wciąż są użyteczne dla ludzi.
 
 %package autoclose
 Summary:	autoclose plugin for Geany
-Summary(pl.UTF-8):	wtyczka automatycznego zamykania nawiasów dla Geany
+Summary(pl.UTF-8):	Wtyczka automatycznego zamykania nawiasów dla Geany
 Group:		Libraries
 Requires:	%{name} = %{version}-%{release}
 
@@ -79,7 +79,7 @@ Ta wtyczka automatycznie zamyka nawiasy w trakcie pisania kodu.
 
 %package automark
 Summary:	automark plugin for Geany
-Summary(pl.UTF-8):	: Wtyczka automark dla Geany
+Summary(pl.UTF-8):	Wtyczka automark dla Geany
 Group:		Libraries
 Requires:	%{name} = %{version}-%{release}
 
@@ -93,7 +93,7 @@ znajdującego się pod kursorem.
 
 %package codenav
 Summary:	codenav plugin for Geany
-Summary(pl.UTF-8):	: Wtyczka codenav dla Geany
+Summary(pl.UTF-8):	Wtyczka codenav dla Geany
 Group:		Libraries
 Requires:	%{name} = %{version}-%{release}
 
@@ -105,7 +105,7 @@ Wtyczka ułatwiająca nawigowanie po kodzie.
 
 %package commander
 Summary:	commander plugin for Geany
-Summary(pl.UTF-8):	: Wtyczka commander dla Geany
+Summary(pl.UTF-8):	Wtyczka commander dla Geany
 Group:		Libraries
 Requires:	%{name} = %{version}-%{release}
 
@@ -114,12 +114,12 @@ Commander is a plugin for Geany that provides a command panel for
 rapid access to any action.
 
 %description commander -l pl.UTF-8
-Commander to wtyczka do Geany, która zapewnia panel poleceń
+Commander to wtyczka do Geany, która zapewnia panel poleceń,
 umożliwiający szybki dostęp do dowolnej akcji.
 
 %package debugger
 Summary:	debugger plugin for Geany
-Summary(pl.UTF-8):	: Wtyczka debugger dla Geany
+Summary(pl.UTF-8):	Wtyczka debugger dla Geany
 Group:		Libraries
 Requires:	%{name} = %{version}-%{release}
 
@@ -135,7 +135,7 @@ planowane jest także wsparcie innych backendów.
 
 %package defineformat
 Summary:	defineformat plugin for Geany
-Summary(pl.UTF-8):	: Wtyczka defineformat dla Geany
+Summary(pl.UTF-8):	Wtyczka defineformat dla Geany
 Group:		Libraries
 Requires:	%{name} = %{version}-%{release}
 
@@ -144,7 +144,7 @@ Defineformat -- on-the-fly #define prettyprinter. This plugin will
 help you to write multiline defines with aligned backslash.
 
 %description defineformat -l pl.UTF-8
-Ta wtyczka pomoże Ci napisać definicje wielowierszowe z wyrównanym
+Ta wtyczka pomaga pisać definicje wielowierszowe z wyrównanym
 odwrotnym ukośnikiem.
 
 # Incompatible with GTK+3 yet
@@ -164,7 +164,7 @@ odwrotnym ukośnikiem.
 
 %package geanyctags
 Summary:	geanyctags plugin for Geany
-Summary(pl.UTF-8):	: Wtyczka geanyctags dla Geany
+Summary(pl.UTF-8):	Wtyczka geanyctags dla Geany
 Group:		Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	ctags
@@ -180,7 +180,7 @@ ctags dla projektu Geany. Wtyczka wymaga zainstalowanego ctags.
 
 %package geanydoc
 Summary:	geanydoc plugin for Geany
-Summary(pl.UTF-8):	: Wtyczka geanydoc dla Geany
+Summary(pl.UTF-8):	Wtyczka geanydoc dla Geany
 Group:		Libraries
 Requires:	%{name} = %{version}-%{release}
 
@@ -189,12 +189,12 @@ Geanydoc is plugin for Geany IDE that allow execute specified commands
 on the current word at the cursor position.
 
 %description geanydoc -l pl.UTF-8
-Geanydoc to wtyczka dla Geany IDE, która pozwala wykonywać określone
+Geanydoc to wtyczka dla IDE Geany, która pozwala wykonywać określone
 polecenia dla aktualnie zaznaczonego słowa.
 
 %package geanyextrasel
 Summary:	geanyextrasel plugin for Geany
-Summary(pl.UTF-8):	: Wtyczka geanyextrasel dla Geany
+Summary(pl.UTF-8):	Wtyczka geanyextrasel dla Geany
 Group:		Libraries
 Requires:	%{name} = %{version}-%{release}
 
@@ -212,21 +212,21 @@ The Extra Selection plugin adds the following functions to Geany:
 
 %description geanyextrasel -l pl.UTF-8
 Wtyczka Extra Selection dodaje do Geany następujące funkcje:
-- Przejdź do pasującego nawiasu klamrowego i wybierz (Wybierz do
-  pasującego nawiasu klamrowego).
-- Idź do linii i wybierz (Wybierz do linii).
-- Przełącz bieżący typ wyboru między strumieniem a prostokątem (bez
-  zmiany trybu kolumny, można wywoływać podczas zaznaczania
-  przeciągnięciem).
+- Przejście do pasującego nawiasu klamrowego i zaznaczenie (Zaznacz do
+  pasującego nawiasu klamrowego),
+- Przejście do linii i zaznaczenie (Zaznacz do linii).
+- Przełączanie bieżącego rodzaju zaznaczenia między strumieniowym a
+  prostokątnym (bez zmiany trybu kolumnowego, można wywoływać podczas
+  zaznaczania przeciągnięciem).
 - Ctrl-Shift-Alt-Left / Right / Home / End - tak samo jak Ctrl-Shift,
-  ale do wyboru prostokątnego.
-- Tryb kolumny - gdy aktywne, wszystkie klawisze (Ctrl) -Shift-ruch
-  robią zaznaczenie prostokąta zamiast strumienia.
-- Wybór za pomocą kotwicy zamiast klawiszy Shift-move.
+  ale dla zaznaczania prostokątnego.
+- Tryb kolumnowy - gdy aktywny, wszystkie klawisze (Ctrl)-Shift-ruch
+  wykonują zaznaczenie prostokątne zamiast strumieniowego.
+- Zaznaczanie za pomocą kotwicy zamiast klawiszy Shift-move.
 
 %package geanyinsertnum
 Summary:	geanyinsertnum plugin for Geany
-Summary(pl.UTF-8):	: Wtyczka geanyinsertnum dla Geany
+Summary(pl.UTF-8):	Wtyczka geanyinsertnum dla Geany
 Group:		Libraries
 Requires:	%{name} = %{version}-%{release}
 
@@ -237,15 +237,15 @@ user. For practical reasons, the number of lines is limited to 250000.
 Lines shorter than the current selection are skipped.
 
 %description geanyinsertnum -l pl.UTF-8
-Wtyczka ta zastępuje prostokątny wybór (prawdopodobnie o zerowej
-szerokości) liczbami całkowitymi, używając start / step / base itp.
-Określonych przez użytkownika. Ze względów praktycznych liczba linii
-jest ograniczona do 250000. Linie krótsze niż bieżący wybór są
-pomijane.
+Wtyczka ta zastępuje prostokątne zaznaczenie (także o zerowej
+szerokości) ciągiem liczb całkowitych, określony przez początek, krok,
+podstawę itp. podane przez użytkownika. Ze względów praktycznych
+liczba linii jest ograniczona do 250000. Linie krótsze niż bieżące
+zaznaczenie są pomijane.
 
 %package geanylua
 Summary:	geanylua plugin for Geany
-Summary(pl.UTF-8):	: Wtyczka geanylua dla Geany
+Summary(pl.UTF-8):	Wtyczka geanylua dla Geany
 Group:		Libraries
 Requires:	%{name} = %{version}-%{release}
 
@@ -257,7 +257,7 @@ Ta wtyczka umożliwia używanie w Geany skryptów LUA.
 
 %package geanymacro
 Summary:	geanymacro plugin for Geany
-Summary(pl.UTF-8):	: Wtyczka geanymacro dla Geany
+Summary(pl.UTF-8):	Wtyczka geanymacro dla Geany
 Group:		Libraries
 Requires:	%{name} = %{version}-%{release}
 
@@ -270,7 +270,7 @@ makra.
 
 %package geanyminiscript
 Summary:	geanyminiscript plugin for Geany
-Summary(pl.UTF-8):	: Wtyczka geanyminiscript dla Geany
+Summary(pl.UTF-8):	Wtyczka geanyminiscript dla Geany
 Group:		Libraries
 Requires:	%{name} = %{version}-%{release}
 
@@ -282,21 +282,21 @@ Wtyczka filtra Geany Mini-Script
 
 %package geanynumberedbookmarks
 Summary:	geanynumberedbookmarks plugin for Geany
-Summary(pl.UTF-8):	: Wtyczka geanynumberedbookmarks dla Geany
+Summary(pl.UTF-8):	Wtyczka geanynumberedbookmarks dla Geany
 Group:		Libraries
 Requires:	%{name} = %{version}-%{release}
 
 %description geanynumberedbookmarks
 Geanynumberedbookmarks is a plugin to provide users with 10 numbered
-bookmarks (in addition to the usual bookkmarks)
+bookmarks (in addition to the usual bookmarks).
 
 %description geanynumberedbookmarks -l pl.UTF-8
 Geanynumberedbookmarks to wtyczka zapewniająca użytkownikom 10
-ponumerowanych zakładek (oprócz zwykłych zakładek)
+ponumerowanych zakładek (oprócz zwykłych zakładek).
 
 %package geanypg
 Summary:	geanypg plugin for Geany
-Summary(pl.UTF-8):	: Wtyczka geanypg dla Geany
+Summary(pl.UTF-8):	Wtyczka geanypg dla Geany
 Group:		Libraries
 Requires:	%{name} = %{version}-%{release}
 
@@ -306,11 +306,11 @@ and verify signatures with GnuPG.
 
 %description geanypg -l pl.UTF-8
 GeanyPG to wtyczka dla Geany, która pozwala użytkownikowi szyfrować,
-deszyfrować i weryfikować podpisy za pomocą GnuPG.
+odszyfrowywać i weryfikować podpisy za pomocą GnuPG.
 
 %package geanyprj
 Summary:	geanyprj plugin for Geany
-Summary(pl.UTF-8):	: Wtyczka geanyprj dla Geany
+Summary(pl.UTF-8):	Wtyczka geanyprj dla Geany
 Group:		Libraries
 Requires:	%{name} = %{version}-%{release}
 
@@ -318,12 +318,12 @@ Requires:	%{name} = %{version}-%{release}
 Geanyprj is alternative project manager for Geany fast light IDE.
 
 %description geanyprj -l pl.UTF-8
-Geanyprj jest alternatywnym menedżerem projektów dla Geany IDE.
+Geanyprj jest alternatywnym zarządcą projektów dla Geany IDE.
 
 # Incompatible with GTK+3 yet
 #%package geanypy
 #Summary:	geanypy plugin for Geany
-#Summary(pl.UTF-8):	: Wtyczka geanypy dla Geany
+#Summary(pl.UTF-8):	Wtyczka geanypy dla Geany
 #Group:		Libraries
 #Requires:	%{name} = %{version}-%{release}
 
@@ -332,12 +332,12 @@ Geanyprj jest alternatywnym menedżerem projektów dla Geany IDE.
 #Geany C API for Python.
 
 #%description geanypy -l pl.UTF-8
-#Pisz wtyczki Geany w Pythonie! Geanypy zapewnia większość
-#standardowych API C Geany dla Pythona.
+#Pisz wtyczki Geany w Pythonie! Geanypy zapewnia udostępnia większość
+#standardowych API C Geany z poziomu Pythona.
 
 %package geanyvc
 Summary:	geanyvc plugin for Geany
-Summary(pl.UTF-8):	: Wtyczka geanyvc dla Geany
+Summary(pl.UTF-8):	Wtyczka geanyvc dla Geany
 Group:		Libraries
 Requires:	%{name} = %{version}-%{release}
 
@@ -348,15 +348,14 @@ of vc is implemented, but, hey, you don't need anything besides diff,
 log, status, revert and commit most time.
 
 %description geanyvc -l pl.UTF-8
-GeanyVC to wtyczka, która zapewnia jednolity sposób uzyskiwania
-dostępu do różnych systemów kontroli wersji w Geany IDE.
-Zaimplementowano tylko niewielki podzbiór funkcji, ale, hej, nie
-potrzebujesz niczego poza różnicami, logowaniem, statusem,
-przywracaniem i zatwierdzaniem przez większość czasu.
+GeanyVC to wtyczka, która zapewnia jednolity sposób dostępu do różnych
+systemów kontroli wersji w IDE Geany. Zaimplementowano tylko niewielki
+podzbiór funkcji, ale zwykle wystarczają różnice, log zmian, status,
+wycofywanie i zatwierdzanie zmian.
 
 %package geniuspaste
 Summary:	geniuspaste plugin for Geany
-Summary(pl.UTF-8):	: Wtyczka geniuspaste dla Geany
+Summary(pl.UTF-8):	Wtyczka geniuspaste dla Geany
 Group:		Libraries
 Requires:	%{name} = %{version}-%{release}
 
@@ -369,26 +368,30 @@ pastebin services, but more can be added:
 - fpaste.org
 - pastebin.geany.org
 - paste.debian.net
-- sprunge.us GeniusPaste detects automatically the syntax of the code
-  and pastes it with syntax highlighting enabled. It can also display
-  the pasted code opening a new browser tab.
+- sprunge.us
+
+GeniusPaste detects automatically the syntax of the code and pastes it
+with syntax highlighting enabled. It can also display the pasted code
+opening a new browser tab.
 
 %description geniuspaste -l pl.UTF-8
 Ta wtyczka pozwala użytkownikowi wkleić kod z Geany do skonfigurowanej
-usługi pastebin. W tej chwili jest on wyposażony we wbudowane wsparcie
-tych usług pastebin, ale można dodać więcej:
+usługi pastebin. W tej chwili ma wbudowaną obsługę poniższych usłg
+pastebin, ale może być dodane więcej:
 - codepad.org
 - dpaste.de
 - fpaste.org
 - pastebin.geany.org
 - paste.debian.net
-- sprunge.us GeniusPaste automatycznie wykrywa składnię kodu i wkleja
-  go z włączonym podświetlaniem składni. Może także wyświetlać wklejony
-  kod otwierając nową kartę przeglądarki.
+- sprunge.us
+
+GeniusPaste automatycznie wykrywa składnię kodu i wkleja go z
+włączonym podświetlaniem składni. Może także wyświetlać wklejony kod,
+otwierając nową kartę przeglądarki.
 
 %package git-changebar
 Summary:	git-changebar plugin for Geany
-Summary(pl.UTF-8):	: Wtyczka git-changebar dla Geany
+Summary(pl.UTF-8):	Wtyczka git-changebar dla Geany
 Group:		Libraries
 Requires:	%{name} = %{version}-%{release}
 
@@ -398,11 +401,12 @@ allows to navigate through the hunks and undo them.
 
 %description git-changebar -l pl.UTF-8
 Ta wtyczka podkreśla niezatwierdzone zmiany w plikach śledzonych za
-pomocą Git, pozwala nawigować między zmienionymi blokami i cofać je.
+pomocą Gita, pozwala nawigować między zmienionymi blokami i wycofywać
+zmiany.
 
 %package keyrecord
 Summary:	keyrecord plugin for Geany
-Summary(pl.UTF-8):	: Wtyczka keyrecord dla Geany
+Summary(pl.UTF-8):	Wtyczka keyrecord dla Geany
 Group:		Libraries
 Requires:	%{name} = %{version}-%{release}
 
@@ -416,7 +420,7 @@ ją kilka razy.
 
 %package latex
 Summary:	latex plugin for Geany
-Summary(pl.UTF-8):	: Wtyczka latex dla Geany
+Summary(pl.UTF-8):	Wtyczka latex dla Geany
 Group:		Libraries
 Requires:	%{name} = %{version}-%{release}
 
@@ -428,7 +432,7 @@ LaTeX to prosta wtyczka rozszerzająca możliwości Geany w tym zakresie.
 
 %package lineoperations
 Summary:	lineoperations plugin for Geany
-Summary(pl.UTF-8):	: Wtyczka lineoperations dla Geany
+Summary(pl.UTF-8):	Wtyczka lineoperations dla Geany
 Group:		Libraries
 Requires:	%{name} = %{version}-%{release}
 
@@ -437,12 +441,12 @@ Line Operations is an assortment of simple line functions that can be
 applied to an open file, or selection.
 
 %description lineoperations -l pl.UTF-8
-Line Operations to zestaw prostych funkcji liniowych, które można
-zastosować do otwartego pliku lub zaznaczenia.
+Line Operations to zestaw prostych, operujących na liniach funkcji,
+które można zastosować do otwartego pliku lub zaznaczenia.
 
 %package lipsum
 Summary:	lipsum plugin for Geany
-Summary(pl.UTF-8):	: Wtyczka lipsum dla Geany
+Summary(pl.UTF-8):	Wtyczka lipsum dla Geany
 Group:		Libraries
 Requires:	%{name} = %{version}-%{release}
 
@@ -456,7 +460,7 @@ do wstawiania tekstu zastępczego do dokumentu.
 
 %package markdown
 Summary:	markdown plugin for Geany
-Summary(pl.UTF-8):	: Wtyczka markdown dla Geany
+Summary(pl.UTF-8):	Wtyczka markdown dla Geany
 Group:		Libraries
 Requires:	%{name} = %{version}-%{release}
 
@@ -466,14 +470,14 @@ is, Markdown converted to HTML and inserted into an HTML template and
 loaded into a WebKit view.
 
 %description markdown -l pl.UTF-8
-Ta wtyczka zapewnia podgląd w czasie rzeczywistym renderowanego
-znacznika, to znaczy znacznika przekonwertowanego na HTML i
-wstawionego do szablonu HTML i załadowanego do widoku WebKit.
+Ta wtyczka zapewnia podgląd w czasie rzeczywistym renderowanego kodu
+Markdown, tzn. Markdown jest konwertowany na HTML i wstawiany do
+szablonu HTML, a następnie ładowany do widoku WebKit.
 
 # Incompatible with GTK+3 yet
 #%package multiterm
 #Summary:	multiterm plugin for Geany
-#Summary(pl.UTF-8):	: Wtyczka multiterm dla Geany
+#Summary(pl.UTF-8):	Wtyczka multiterm dla Geany
 #Group:		Libraries
 #Requires:	%{name} = %{version}-%{release}
 
@@ -484,12 +488,12 @@ wstawionego do szablonu HTML i załadowanego do widoku WebKit.
 
 #%description multiterm -l pl.UTF-8
 #MultiTerm jest podobne do wbudowanego w Geany terminala VTE, z tą
-#różnicą, że wspiera wiele terminali w zakładkach i różnie powłoki w
-#każdej zakłądce terminalowej.
+#różnicą, że obsługuje wiele terminali w zakładkach i różne powłoki w
+#każdej zakładce terminalowej.
 
 %package overview
 Summary:	overview plugin for Geany
-Summary(pl.UTF-8):	: Wtyczka overview dla Geany
+Summary(pl.UTF-8):	Wtyczka overview dla Geany
 Group:		Libraries
 Requires:	%{name} = %{version}-%{release}
 
@@ -507,7 +511,7 @@ funkcji w wielu innych edytorach.
 
 %package pairtaghighlighter
 Summary:	pairtaghighlighter plugin for Geany
-Summary(pl.UTF-8):	: Wtyczka pairtaghighlighter dla Geany
+Summary(pl.UTF-8):	Wtyczka pairtaghighlighter dla Geany
 Group:		Libraries
 Requires:	%{name} = %{version}-%{release}
 
@@ -516,12 +520,13 @@ Finds and highlights matching opening/closing HTML tag by clicking or
 moving cursor inside a tag.
 
 %description pairtaghighlighter -l pl.UTF-8
-Znajduje i wyróżnia pasujący otwierający / zamykający znacznik HTML,
-klikając lub przesuwając kursor wewnątrz znacznika.
+Ta wtyczka znajduje i wyróżnia pasujący otwierający/zamykający
+znacznik HTML po kliknięciu albo przesunięciu kursora wewnątrz
+znacznika.
 
 %package pohelper
 Summary:	pohelper plugin for Geany
-Summary(pl.UTF-8):	: Wtyczka pohelper dla Geany
+Summary(pl.UTF-8):	Wtyczka pohelper dla Geany
 Group:		Libraries
 Requires:	%{name} = %{version}-%{release}
 
@@ -531,13 +536,13 @@ GetText translation files, by providing various features specific to
 this format and to translators.
 
 %description pohelper -l pl.UTF-8
-Translation Helper to wtyczka dla Geany, która poprawia obsługę plików
-tłumaczeń GetText, zapewniając różne funkcje specyficzne dla tego
-formatu i dla tłumaczy.
+Translation Helper to wtyczka dla Geany, która usprawnia obsługę
+plików tłumaczeń GetTexta, zapewniając różne funkcje specyficzne dla
+tego formatu i dla tłumaczy.
 
 %package pretty-printer
 Summary:	pretty-printer plugin for Geany
-Summary(pl.UTF-8):	: Wtyczka pretty-printer dla Geany
+Summary(pl.UTF-8):	Wtyczka pretty-printer dla Geany
 Group:		Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	libxml2 >= 1:2.6.27
@@ -550,7 +555,7 @@ Formatuje XML i czyni go czytelnym dla ludzi.
 
 %package projectorganizer
 Summary:	projectorganizer plugin for Geany
-Summary(pl.UTF-8):	: Wtyczka projectorganizer dla Geany
+Summary(pl.UTF-8):	Wtyczka projectorganizer dla Geany
 Group:		Libraries
 Requires:	%{name} = %{version}-%{release}
 
@@ -564,7 +569,7 @@ wyświetlające na pasku bocznym drzewo plików należących do projektu.
 
 %package scope
 Summary:	scope plugin for Geany
-Summary(pl.UTF-8):	: Wtyczka scope dla Geany
+Summary(pl.UTF-8):	Wtyczka scope dla Geany
 Group:		Libraries
 Requires:	%{name} = %{version}-%{release}
 
@@ -580,22 +585,21 @@ expect (stepping, breakpoints...), and a few notable features:
 - 7-bit/Locale/UTF-8 support for values.
 
 %description scope -l pl.UTF-8
-Zakres jest graficznym interfejsem GDB z normalnymi funkcjami, których
-można oczekiwać (krokami, punktami przerwania ...) i kilkoma ważnymi
-funkcjami:
+Scope jest graficznym interfejsem do GDB ze zwykłymi funkcjami,
+których można oczekiwać (krokami, punktami przerwania itp.) i kilkoma
+ważnymi cechami:
 - Łączność między Scope a gdb jest asynchroniczna.
-- Możesz wprowadzić dowolne polecenie gdb w dowolnym momencie
-  (oczywiście, aby polecenie zostało wykonane, gdb musi być [come]
-  dostępne).
-- Wszystkie wejścia / wyjścia gdb (wraz z kilkoma innymi komunikatami)
-  są wyświetlane w podobnej do terminalu „konsoli debugowania”. Ilekroć
-  zauważysz brak w GUI, po prostu przełącz się na tę konsolę i pracuj
-  bezpośrednio z gdb.
-- Obsługa 7-bit/Locale/UTF-8
+- Można wprowadzić dowolne polecenie gdb w dowolnym momencie
+  (oczywiście, aby polecenie zostało wykonane, gdb musi być dostępne).
+- Wszystkie wejścia/wyjścia gdb (wraz z kilkoma innymi komunikatami)
+  są wyświetlane w podobnej do terminalu „konsoli debugowania”.
+  Jeżeli czegokolwiek brakuje w GUI, wystarczy przełączyć na tę
+  konsolę i pracować bezpośrednio z gdb.
+- Obsługa znaków 7-bitowych/zlokalizowanych/UTF-8.
 
 %package sendmail
 Summary:	sendmail plugin for Geany
-Summary(pl.UTF-8):	: Wtyczka sendmail dla Geany
+Summary(pl.UTF-8):	Wtyczka sendmail dla Geany
 Group:		Libraries
 Requires:	%{name} = %{version}-%{release}
 
@@ -608,14 +612,14 @@ even if it could be used for.
 
 %description sendmail -l pl.UTF-8
 SendMail to mała wtyczka do wysyłania dokumentu jako załącznika przy
-użyciu preferowanego klienta poczty z Geany. Jest podobny do symbolu
+użyciu preferowanego klienta poczty z Geany. Jest podobna do symbolu
 koperty większości narzędzi biurowych i wymaga klienta poczty
-obsługującego połączenia zdalne. Nie jest to bezpośrednie powiązanie z
-sendmailem, nawet jeśli mogłoby być wykorzystane.
+obsługującego połączenia zdalne. Nie jest bezpośrednio powiązana z
+sendmailem, nawet jeśli to sendmail miałby być używany do poczty.
 
 %package shiftcolumn
 Summary:	shiftcolumn plugin for Geany
-Summary(pl.UTF-8):	: Wtyczka shiftcolumn dla Geany
+Summary(pl.UTF-8):	Wtyczka shiftcolumn dla Geany
 Group:		Libraries
 Requires:	%{name} = %{version}-%{release}
 
@@ -625,11 +629,11 @@ right direction skipping one character at a time.
 
 %description shiftcolumn -l pl.UTF-8
 Ta wtyczka umożliwia przenoszenie bloków tekstu poziomo w lewo lub w
-prawo, pomijając jeden znak na raz.
+prawo, przeskakując jeden znak na raz.
 
 %package spellcheck
 Summary:	spellcheck plugin for Geany
-Summary(pl.UTF-8):	: Wtyczka spellcheck dla Geany
+Summary(pl.UTF-8):	Wtyczka spellcheck dla Geany
 Group:		Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	enchant2 >= 2.2
@@ -647,21 +651,20 @@ configure dialog lists all available languages/dictionaries which can
 be used for the spell check.
 
 %description spellcheck -l pl.UTF-8
-Ta wtyczka sprawdza zawartość bieżącego dokumentu w Geany za pomocą
-biblioteki sprawdzania pisowni Enchant. Możesz także wybrać określony
-fragment tekstu, a następnie wtyczka sprawdzi tylko zaznaczony tekst.
-Wszystkie wiersze z błędnie napisanymi słowami są podświetlone
-czerwonym zawijasowym podkreśleniem, a nieprawidłowe słowa są
-drukowane w oknie wiadomości u dołu Geany wraz z dostępnymi
-sugestiami. Aby wtyczka w ogóle działała, musisz mieć zainstalowaną
-bibliotekę Enchant wraz z co najmniej jednym backendem (Aspell,
-Myspell, Hunspell, ...). Okno dialogowe konfiguracji wtyczki zawiera
-listę wszystkich dostępnych języków / słowników, których można użyć do
-sprawdzania pisowni.
+Ta wtyczka sprawdza pisownię bieżącego dokumentu w Geany za pomocą
+biblioteki sprawdzania pisowni Enchant. Można także wybrać określony
+fragment tekstu, a wtyczka sprawdzi tylko zaznaczony tekst. Wszystkie
+wiersze z błędnie napisanymi słowami są podświetlone czerwonym
+zawijasowym podkreśleniem, a nieprawidłowe słowa są wypisywane w oknie
+wiadomości u dołu Geany wraz z dostępnymi podpowiedziami. Aby wtyczka
+w ogóle działała, trzeba mieć zainstalowaną bibliotekę Enchant z co
+najmniej jednym backendem (Aspell, Myspell, Hunspell...). Okno
+dialogowe konfiguracji wtyczki zawiera listę wszystkich dostępnych
+języków/słowników, których można użyć do sprawdzania pisowni.
 
 %package tableconvert
 Summary:	tableconvert plugin for Geany
-Summary(pl.UTF-8):	: Wtyczka tableconvert dla Geany
+Summary(pl.UTF-8):	Wtyczka tableconvert dla Geany
 Group:		Libraries
 Requires:	%{name} = %{version}-%{release}
 
@@ -670,12 +673,12 @@ Tableconvert is a plugin which helps on converting a tabulator
 separated selection into a table.
 
 %description tableconvert -l pl.UTF-8
-Tableconvert to wtyczka, która pomaga w konwertowaniu selekcji
-rozdzielonej tabulatorami na tabelę.
+Tableconvert to wtyczka, która pomaga w konwertowaniu zaznaczenia
+porozdzielanego tabulatorami na tabelę.
 
 %package treebrowser
 Summary:	treebrowser plugin for Geany
-Summary(pl.UTF-8):	: Wtyczka treebrowser dla Geany
+Summary(pl.UTF-8):	Wtyczka treebrowser dla Geany
 Group:		Libraries
 Requires:	%{name} = %{version}-%{release}
 
@@ -688,12 +691,12 @@ Geany itself.
 %description treebrowser -l pl.UTF-8
 Wtyczka TreeBrowser dla Geany zapewnia alternatywny sposób
 przeglądania plików. Wyświetla pliki i katalogi w widoku drzewa i ma
-więcej funkcji niż wtyczka przeglądarki plików dostarczana z samą
+więcej funkcji niż wtyczka przeglądarki plików dostarczana z samym
 Geany.
 
 %package updatechecker
 Summary:	updatechecker plugin for Geany
-Summary(pl.UTF-8):	: Wtyczka updatechecker dla Geany
+Summary(pl.UTF-8):	Wtyczka updatechecker dla Geany
 Group:		Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	libsoup >= 2.42
@@ -708,15 +711,15 @@ jest nowsza wersja Geany.
 
 %package vimode
 Summary:	vimode plugin for Geany
-Summary(pl.UTF-8):	: Wtyczka vimode dla Geany
+Summary(pl.UTF-8):	Wtyczka vimode dla Geany
 Group:		Libraries
 Requires:	%{name} = %{version}-%{release}
 
 %description vimode
-Vimode is a Vim-mode plugin for Geany
+Vimode is a Vim-mode plugin for Geany.
 
 %description vimode -l pl.UTF-8
-Vimode to wtyczka trybu Vim dla Geany
+Vimode to wtyczka trybu Vim dla Geany.
 
 %package webhelper
 Summary:	webhelper plugin for Geany
@@ -732,11 +735,11 @@ inspector).
 %description webhelper -l pl.UTF-8
 WebHelper to wtyczka dla Geany, która zapewnia pewne funkcje
 programistyczne, takie jak podgląd strony internetowej i niektóre
-narzędzia do debugowania (web inspector).
+narzędzia diagnostyczne (web inspector).
 
 %package workbench
 Summary:	workbench plugin for Geany
-Summary(pl.UTF-8):	: Wtyczka workbench dla Geany
+Summary(pl.UTF-8):	Wtyczka workbench dla Geany
 Group:		Libraries
 Requires:	%{name} = %{version}-%{release}
 
@@ -748,13 +751,13 @@ belonging to the project.
 
 %description workbench -l pl.UTF-8
 Wtyczka Workbench jest rozszerzeniem, które umożliwia zarządzanie
-wieloma projektami w geany. Możesz dodać projekty geany do "stołu
-roboczego". Stamtąd możesz dodawać katalogi do projektu, aby zarządzać
+wieloma projektami w Geany. Pozwala dodawać projekty Geany do "biurka
+roboczego". Stamtąd można dodawać do projektu katalogi, aby zarządzać
 plikami należącymi do projektu.
 
 %package xmlsnippets
 Summary:	xmlsnippets plugin for Geany
-Summary(pl.UTF-8):	: Wtyczka xmlsnippets dla Geany
+Summary(pl.UTF-8):	Wtyczka xmlsnippets dla Geany
 Group:		Libraries
 Requires:	%{name} = %{version}-%{release}
 
@@ -764,9 +767,9 @@ automatically inserts a matching snippet after you type an opening
 tag.
 
 %description xmlsnippets -l pl.UTF-8
-Ta wtyczka rozszerza automatyczne uzupełnianie tagów XML / HTML
-dostarczone przez Geany. Automatycznie wstawia pasujący fragment po
-wpisaniu otwierającego tagu.
+Ta wtyczka rozszerza automatyczne uzupełnianie znaczników XML/HTML
+dostarczane przez Geany. Automatycznie wstawia pasujący fragment po
+wpisaniu otwierającego znacznika.
 
 %prep
 %setup -q
