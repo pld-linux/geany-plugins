@@ -1,4 +1,3 @@
-# TODO: ctpl>=0.3 + docutils https://ctpl.tuxfamily.org/ for geanygendoc
 #
 # Conditional build:
 %bcond_without	cppcheck	# cppcheck to check geany-plugins source code
@@ -7,7 +6,7 @@ Summary:	A collection of different plugins for Geany
 Summary(pl.UTF-8):	Zbiór różnych wtyczek dla Geany
 Name:		geany-plugins
 Version:	1.38
-Release:	2
+Release:	3
 License:	GPL v2+
 Group:		Libraries
 Source0:	https://plugins.geany.org/geany-plugins/%{name}-%{version}.tar.gz
@@ -16,6 +15,7 @@ Patch0:		%{name}-libgit2.patch
 URL:		https://plugins.geany.org/
 BuildRequires:	check-devel
 %{?with_cppcheck:BuildRequires:	cppcheck}
+BuildRequires:	ctpl-devel >= 0.3
 BuildRequires:	docutils
 BuildRequires:	enchant2-devel >= 2.2
 BuildRequires:	gdk-pixbuf2-devel >= 2.0
@@ -223,6 +223,25 @@ Wtyczka Extra Selection dodaje do Geany następujące funkcje:
 - Tryb kolumnowy - gdy aktywny, wszystkie klawisze (Ctrl)-Shift-ruch
   wykonują zaznaczenie prostokątne zamiast strumieniowego.
 - Zaznaczanie za pomocą kotwicy zamiast klawiszy Shift-move.
+
+%package geanygendoc
+Summary:	geanygendoc plugin for Geany
+Summary(pl.UTF-8):	Wtyczka geanygendoc dla Geany
+Group:		Libraries
+Requires:	%{name} = %{version}-%{release}
+Requires:	ctpl >= 0.3
+# rst2html
+Requires:	docutils
+
+%description geanygendoc
+GeanyGenDoc is a plugin for Geany that aims to help code documentation
+by automatically generating documentation comment basis from the
+source code.
+
+%description geanygendoc -l pl.UTF-8
+GeanyGenDoc to wtyczka Geany wspomagająca dokumentowanie kodu poprzez
+automatyczne generowanie podstaw komentarzy dokumenujących z kodu
+źródłowego.
 
 %package geanyinsertnum
 Summary:	geanyinsertnum plugin for Geany
@@ -861,6 +880,12 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc geanyextrasel/{AUTHORS,ChangeLog,NEWS,README}
 %attr(755,root,root) %{_libdir}/geany/geanyextrasel.so
+
+%files geanygendoc
+%defattr(644,root,root,755)
+%doc geanygendoc/{AUTHORS,ChangeLog,NEWS,README,TODO}
+%attr(755,root,root) %{_libdir}/geany/geanygendoc.so
+%{_datadir}/%{name}/geanygendoc
 
 %files geanyinsertnum
 %defattr(644,root,root,755)
