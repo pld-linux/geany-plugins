@@ -13,6 +13,9 @@ Source0:	https://plugins.geany.org/geany-plugins/%{name}-%{version}.tar.gz
 # Source0-md5:	1d9f297ac49e54ab769b12ccef6df0b2
 Patch0:		%{name}-libgit2.patch
 URL:		https://plugins.geany.org/
+BuildRequires:	autoconf >= 2.61
+BuildRequires:	autoconf-archive
+BuildRequires:	automake >= 1:1.8
 BuildRequires:	check-devel
 %{?with_cppcheck:BuildRequires:	cppcheck}
 BuildRequires:	ctpl-devel >= 0.3
@@ -27,6 +30,7 @@ BuildRequires:	gtk+3-devel >= 3.0
 BuildRequires:	gtk-webkit3-devel >= 1.1.18
 BuildRequires:	gtk-webkit4-devel >= 1.1.13
 BuildRequires:	gtkspell3-devel >= 3.0
+BuildRequires:	intltool >= 0.35.0
 BuildRequires:	libgit2-devel >= 0.21
 BuildRequires:	libmarkdown-devel
 BuildRequires:	libsoup-devel >= 2.42
@@ -793,8 +797,15 @@ wpisaniu otwierającego znacznika.
 %prep
 %setup -q
 %patch0 -p1
+%{__rm} build/bundled/gpgme.m4
 
 %build
+%{__intltoolize}
+%{__libtoolize}
+%{__aclocal} -I build -I geanypy/m4
+%{__autoheader}
+%{__automake}
+%{__autoconf}
 %configure \
 	%{!?with_cppcheck:--disable-cppcheck} \
 	--disable-silent-rules
