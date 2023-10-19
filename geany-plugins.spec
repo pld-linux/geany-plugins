@@ -5,13 +5,12 @@
 Summary:	A collection of different plugins for Geany
 Summary(pl.UTF-8):	Zbiór różnych wtyczek dla Geany
 Name:		geany-plugins
-Version:	1.38
-Release:	4
+Version:	2.0
+Release:	1
 License:	GPL v2+
 Group:		Libraries
 Source0:	https://plugins.geany.org/geany-plugins/%{name}-%{version}.tar.gz
-# Source0-md5:	1d9f297ac49e54ab769b12ccef6df0b2
-Patch0:		%{name}-libgit2.patch
+# Source0-md5:	87b17a7f3ea2402f2bbd5ca68771aafb
 URL:		https://plugins.geany.org/
 BuildRequires:	autoconf >= 2.61
 BuildRequires:	autoconf-archive
@@ -22,13 +21,13 @@ BuildRequires:	ctpl-devel >= 0.3
 BuildRequires:	docutils
 BuildRequires:	enchant2-devel >= 2.2
 BuildRequires:	gdk-pixbuf2-devel >= 2.0
-BuildRequires:	geany-devel >= 1.38
+BuildRequires:	geany-devel >= 2.0
 BuildRequires:	gettext-tools
 BuildRequires:	glib2-devel >= 1:2.22
-BuildRequires:	gpgme-devel
-BuildRequires:	gtk+3-devel >= 3.0
-BuildRequires:	gtk-webkit3-devel >= 1.1.18
-BuildRequires:	gtk-webkit4-devel >= 1.1.13
+BuildRequires:	gpgme-devel >= 0.4.2
+BuildRequires:	gtk+3-devel >= 3.24
+#BuildRequires:	gtk-webkit3-devel >= 1.1.18
+BuildRequires:	gtk-webkit4-devel >= 1.1.18
 BuildRequires:	gtkspell3-devel >= 3.0
 BuildRequires:	intltool >= 0.35.0
 BuildRequires:	libgit2-devel >= 0.21
@@ -40,7 +39,7 @@ BuildRequires:	lua51-devel >= 5.1
 BuildRequires:	pkgconfig
 BuildRequires:	vala
 BuildRequires:	vte-devel >= 0.46
-Requires:	geany >= 1.38
+Requires:	geany >= 2.0
 Requires:	glib2 >= 1:2.22
 Obsoletes:	geany-plugins-devhelp < 1.37
 Obsoletes:	geany-plugins-geanypy < 1.37
@@ -150,21 +149,6 @@ help you to write multiline defines with aligned backslash.
 %description defineformat -l pl.UTF-8
 Ta wtyczka pomaga pisać definicje wielowierszowe z wyrównanym
 odwrotnym ukośnikiem.
-
-# Incompatible with GTK+3 yet
-#%package devhelp
-#Summary:	devhelp plugin for Geany
-#Summary(pl.UTF-8):	: Wtyczka devhelp dla Geany
-#Group:		Libraries
-#Requires:	%{name} = %{version}-%{release}
-
-#%description devhelp
-#This plugin embeds an API documentation browser and search
-#functionality directly into Geany's user interface.
-
-#%description devhelp -l pl.UTF-8
-#Ta wtyczka osadza przeglądarkę dokumentacji API i wyszukiwanie
-#funkcjonalność bezpośrednio w interfejsie użytkownika Geany.
 
 %package geanyctags
 Summary:	geanyctags plugin for Geany
@@ -343,21 +327,6 @@ Geanyprj is alternative project manager for Geany fast light IDE.
 %description geanyprj -l pl.UTF-8
 Geanyprj jest alternatywnym zarządcą projektów dla Geany IDE.
 
-# Incompatible with GTK+3 yet
-#%package geanypy
-#Summary:	geanypy plugin for Geany
-#Summary(pl.UTF-8):	Wtyczka geanypy dla Geany
-#Group:		Libraries
-#Requires:	%{name} = %{version}-%{release}
-
-#%description geanypy
-#Write Geany plugins in Python! Geanypy provides most of the standard
-#Geany C API for Python.
-
-#%description geanypy -l pl.UTF-8
-#Pisz wtyczki Geany w Pythonie! Geanypy zapewnia udostępnia większość
-#standardowych API C Geany z poziomu Pythona.
-
 %package geanyvc
 Summary:	geanyvc plugin for Geany
 Summary(pl.UTF-8):	Wtyczka geanyvc dla Geany
@@ -496,23 +465,6 @@ loaded into a WebKit view.
 Ta wtyczka zapewnia podgląd w czasie rzeczywistym renderowanego kodu
 Markdown, tzn. Markdown jest konwertowany na HTML i wstawiany do
 szablonu HTML, a następnie ładowany do widoku WebKit.
-
-# Incompatible with GTK+3 yet
-#%package multiterm
-#Summary:	multiterm plugin for Geany
-#Summary(pl.UTF-8):	Wtyczka multiterm dla Geany
-#Group:		Libraries
-#Requires:	%{name} = %{version}-%{release}
-
-#%description multiterm
-#MultiTerm is similar to Geany's built-in VTE terminal except that it
-#supports multiple terminals in tabs and supports different shells in
-#each of the terminal tabs.
-
-#%description multiterm -l pl.UTF-8
-#MultiTerm jest podobne do wbudowanego w Geany terminala VTE, z tą
-#różnicą, że obsługuje wiele terminali w zakładkach i różne powłoki w
-#każdej zakładce terminalowej.
 
 %package overview
 Summary:	overview plugin for Geany
@@ -796,13 +748,12 @@ wpisaniu otwierającego znacznika.
 
 %prep
 %setup -q
-%patch0 -p1
 %{__rm} build/bundled/gpgme.m4
 
 %build
 %{__intltoolize}
 %{__libtoolize}
-%{__aclocal} -I build -I geanypy/m4
+%{__aclocal} -I build 
 %{__autoheader}
 %{__automake}
 %{__autoconf}
@@ -871,12 +822,6 @@ rm -rf $RPM_BUILD_ROOT
 %doc defineformat/{AUTHORS,ChangeLog,NEWS,README}
 %attr(755,root,root) %{_libdir}/geany/defineformat.so
 
-#%files devhelp
-#%defattr(644,root,root,755)
-#%doc devhelp/{AUTHORS,ChangeLog,NEWS,README}
-#%attr(755,root,root) %{_libdir}/geany/devhelp.so
-#%{_datadir}/%{name}/devhelp
-
 %files geanyctags
 %defattr(644,root,root,755)
 %doc geanyctags/{AUTHORS,ChangeLog,NEWS,README}
@@ -936,13 +881,6 @@ rm -rf $RPM_BUILD_ROOT
 %doc geanyprj/{AUTHORS,ChangeLog,NEWS,README}
 %attr(755,root,root) %{_libdir}/geany/geanyprj.so
 
-#%files geanypy
-#%defattr(644,root,root,755)
-#%doc geanypy/{AUTHORS,ChangeLog,NEWS,README}
-#%attr(755,root,root) %{_libdir}/geany/geanypy.so
-#%{_libdir}/geany/*.py
-#%{_libdir}/geany/geanypy
-
 %files geanyvc
 %defattr(644,root,root,755)
 %doc geanyvc/{AUTHORS,ChangeLog,NEWS,README}
@@ -984,11 +922,6 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc markdown/{AUTHORS,ChangeLog,NEWS,README}
 %attr(755,root,root) %{_libdir}/geany/markdown.so
-
-#%files multiterm
-#%defattr(644,root,root,755)
-#%doc multiterm/{AUTHORS,ChangeLog,NEWS,README,TODO}
-#%attr(755,root,root) %{_libdir}/geany/multiterm.so
 
 %files overview
 %defattr(644,root,root,755)
