@@ -11,6 +11,7 @@ License:	GPL v2+
 Group:		Libraries
 Source0:	https://plugins.geany.org/geany-plugins/%{name}-%{version}.tar.gz
 # Source0-md5:	87b17a7f3ea2402f2bbd5ca68771aafb
+Patch0:		gcc14.patch
 URL:		https://plugins.geany.org/
 BuildRequires:	autoconf >= 2.61
 BuildRequires:	autoconf-archive
@@ -748,12 +749,13 @@ wpisaniu otwierającego znacznika.
 
 %prep
 %setup -q
+%patch -P 0 -p1
 %{__rm} build/bundled/gpgme.m4
 
 %build
 %{__intltoolize}
 %{__libtoolize}
-%{__aclocal} -I build 
+%{__aclocal} -I build
 %{__autoheader}
 %{__automake}
 %{__autoconf}
