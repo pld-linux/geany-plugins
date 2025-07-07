@@ -5,13 +5,12 @@
 Summary:	A collection of different plugins for Geany
 Summary(pl.UTF-8):	Zbiór różnych wtyczek dla Geany
 Name:		geany-plugins
-Version:	2.0
-Release:	3
+Version:	2.1
+Release:	1
 License:	GPL v2+
 Group:		Libraries
 Source0:	https://plugins.geany.org/geany-plugins/%{name}-%{version}.tar.gz
-# Source0-md5:	87b17a7f3ea2402f2bbd5ca68771aafb
-Patch0:		gcc14.patch
+# Source0-md5:	42069f0e3c8766c8395cc3d985166226
 URL:		https://plugins.geany.org/
 BuildRequires:	autoconf >= 2.61
 BuildRequires:	autoconf-archive
@@ -22,12 +21,11 @@ BuildRequires:	ctpl-devel >= 0.3
 BuildRequires:	docutils
 BuildRequires:	enchant2-devel >= 2.2
 BuildRequires:	gdk-pixbuf2-devel >= 2.0
-BuildRequires:	geany-devel >= 2.0
+BuildRequires:	geany-devel >= 2.1
 BuildRequires:	gettext-tools
-BuildRequires:	glib2-devel >= 1:2.22
+BuildRequires:	glib2-devel >= 1:2.56
 BuildRequires:	gpgme-devel >= 0.4.2
 BuildRequires:	gtk+3-devel >= 3.24
-#BuildRequires:	gtk-webkit3-devel >= 1.1.18
 BuildRequires:	gtk-webkit4-devel >= 1.1.18
 BuildRequires:	gtkspell3-devel >= 3.0
 BuildRequires:	intltool >= 0.35.0
@@ -40,8 +38,8 @@ BuildRequires:	lua51-devel >= 5.1
 BuildRequires:	pkgconfig
 BuildRequires:	vala
 BuildRequires:	vte-devel >= 0.46
-Requires:	geany >= 2.0
-Requires:	glib2 >= 1:2.22
+Requires:	geany >= 2.1
+Requires:	glib2 >= 1:2.56
 Obsoletes:	geany-plugins-devhelp < 1.37
 Obsoletes:	geany-plugins-geanypy < 1.37
 Obsoletes:	geany-plugins-multiterm < 1.37
@@ -451,6 +449,23 @@ to insert placeholder text into your document.
 Lipsum to wtyczka dla Geany, która implementuje generator Lorem Ipsum
 do wstawiania tekstu zastępczego do dokumentu.
 
+%package lsp
+Summary:	LSP plugin for Geany
+Summary(pl.UTF-8):	Wtyczka LSP dla Geany
+Group:		Libraries
+Requires:	%{name} = %{version}-%{release}
+
+%description lsp
+LSP Client is a language server protocol client plugin that allows to
+run multiple language servers for various programming languages,
+making their functionality accessible to Geany.
+
+%description lsp -l pl.UTF-8
+Klient LSP to wtyczka klienta protokołu serwera językowego
+umożliwiająca uruchamianie wielu serwerów językowych dla różnych
+języków programowania, dzięki czemu ich funkcjonalność jest dostępna
+dla Geany.
+
 %package markdown
 Summary:	markdown plugin for Geany
 Summary(pl.UTF-8):	Wtyczka markdown dla Geany
@@ -568,9 +583,9 @@ ważnymi cechami:
 - Można wprowadzić dowolne polecenie gdb w dowolnym momencie
   (oczywiście, aby polecenie zostało wykonane, gdb musi być dostępne).
 - Wszystkie wejścia/wyjścia gdb (wraz z kilkoma innymi komunikatami)
-  są wyświetlane w podobnej do terminalu „konsoli debugowania”.
-  Jeżeli czegokolwiek brakuje w GUI, wystarczy przełączyć na tę
-  konsolę i pracować bezpośrednio z gdb.
+  są wyświetlane w podobnej do terminalu „konsoli debugowania”. Jeżeli
+  czegokolwiek brakuje w GUI, wystarczy przełączyć na tę konsolę i
+  pracować bezpośrednio z gdb.
 - Obsługa znaków 7-bitowych/zlokalizowanych/UTF-8.
 
 %package sendmail
@@ -749,11 +764,9 @@ wpisaniu otwierającego znacznika.
 
 %prep
 %setup -q
-%patch -P 0 -p1
 %{__rm} build/bundled/gpgme.m4
 
 %build
-%{__intltoolize}
 %{__libtoolize}
 %{__aclocal} -I build
 %{__autoheader}
@@ -922,6 +935,12 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc lipsum/{AUTHORS,ChangeLog,NEWS,README}
 %attr(755,root,root) %{_libdir}/geany/lipsum.so
+
+%files lsp
+%defattr(644,root,root,755)
+%doc lsp/{AUTHORS,README}
+%attr(755,root,root) %{_libdir}/geany/lsp.so
+%{_datadir}/geany-plugins/lsp/lsp.conf
 
 %files markdown
 %defattr(644,root,root,755)
