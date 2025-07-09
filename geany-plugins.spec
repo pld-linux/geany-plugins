@@ -6,7 +6,7 @@ Summary:	A collection of different plugins for Geany
 Summary(pl.UTF-8):	Zbiór różnych wtyczek dla Geany
 Name:		geany-plugins
 Version:	2.1
-Release:	1
+Release:	2
 License:	GPL v2+
 Group:		Libraries
 Source0:	https://plugins.geany.org/geany-plugins/%{name}-%{version}.tar.gz
@@ -940,6 +940,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc lsp/{AUTHORS,README}
 %attr(755,root,root) %{_libdir}/geany/lsp.so
+%dir %{_datadir}/geany-plugins/lsp
 %{_datadir}/geany-plugins/lsp/lsp.conf
 
 %files markdown
